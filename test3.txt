@@ -1,6 +1,6 @@
 local CoastingLibrary = loadstring(game:HttpGet("https://pastebin.com/raw/3gQQtaKX"))()
-local AutoFarm = CoastingLibrary:CreateTab("Auto xFarm") -- Tab Name
-local MainSection = AutoFarm:CreateSection("Test by me")
+local Try = CoastingLibrary:CreateTab("Auto xFarm") -- Tab Name
+local MainSection = Try:CreateSection("Test by me")
 
 function TP(P1)
     Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
