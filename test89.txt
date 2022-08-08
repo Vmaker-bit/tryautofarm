@@ -1,0 +1,2457 @@
+SelectToolWeapon = "Combat"
+
+local lib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/Vape.txt")()
+
+local farm = lib:Window("test2",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
+
+local tab = farm:Tab("auto farm")
+
+function TP(P1)
+    Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if Distance < 250 then
+        Speed = 600
+    elseif Distance < 500 then
+        Speed = 500
+    elseif Distance < 1000 then
+        Speed = 400
+    elseif Distance >= 1000 then
+        Speed = 250
+    end
+    game:GetService("TweenService"):Create(
+        game.Players.LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = P1}
+    ):Play()
+end
+
+function TP2(P1)
+	Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+	if Distance < 1000 then
+		Speed = 500
+	elseif Distance >= 1000 then
+		Speed = 350
+	end
+    game:GetService("TweenService"):Create(
+        game.Players.LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = P1}
+    ):Play()
+    Clip = true
+    wait(Distance/Speed)
+    Clip = false
+end
+
+function TP(P)
+	Distance = (P.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+	if Distance < 10 then
+		Speed = 1000
+	elseif Distance < 170 then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+		Speed = 350
+	elseif Distance < 1000 then
+		Speed = 350
+	elseif Distance >= 1000 then
+		Speed = 250
+	end
+	game:GetService("TweenService"):Create(
+		game.Players.LocalPlayer.Character.HumanoidRootPart,
+		TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+		{CFrame = P}
+	):Play()
+end
+
+farm:Toggle("START KAITAN", _G.AutoKaitan, function(vu)
+    AutoKaitan = vu
+    _G.AutoFarm = vu
+
+if _G.AutoFarm and SelectToolWeapon == "" then
+  else
+		Auto_Farm = vu
+		SelectMonster = ""
+		if vu == false then
+			wait(1)
+			TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+else
+    ESPPlayer = vu
+	while ESPPlayer do wait()
+		UpdatePlayerChams()
+end
+end
+end
+end)
+    spawn(function()
+        while wait(.5) do
+            if AutoKaitan and game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Combat") or game.Players.LocalPlayer.Character:FindFirstChild("Combat") then
+                    local args = {
+                        [1] = "BuyBlackLeg"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end   
+                if game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") or game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    SelectToolWeapon = "Superhuman"
+                end  
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    SelectToolWeapon = "Black Leg"
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    SelectToolWeapon = "Electro"
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    SelectToolWeapon = "Fishman Karate"
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    SelectToolWeapon = "Dragon Claw"
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuyElectro"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuyElectro"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuyFishmanKarate"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Character:FindFirstChild("Electro") and game.Players.LocalPlayer.Character:FindFirstChild("Electro").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuyFishmanKarate"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BlackbeardReward",
+                        [2] = "DragonClaw",
+                        [3] = "2"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BlackbeardReward",
+                        [2] = "DragonClaw",
+                        [3] = "2"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuySuperhuman"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuySuperhuman"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end 
+            end
+        end
+    end)
+farm:Toggle("AUTO STATS", _G.AutoStats, function(vu)
+    while true do
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense")
+    end
+end)
+
+
+local placeid = game.placeid
+magnet = true
+if placeid == 2753915549 then
+	oldworld = true
+elseif placeid == 4442272183 then
+	newworld = true
+elseif placeid == 7449423635 then
+	threeworld = true
+end
+function click()
+	game:getservice'virtualuser':capturecontroller()
+	game:getservice'virtualuser':button1down(vector2.new(1280, 672))
+end
+function checkquest()
+	local mylevel = game.players.localplayer.data.level.value
+	if oldworld then
+		if mylevel == 1 or mylevel <= 9 then 
+			ms = "bandit [lv. 5]"
+			naemquest = "banditquest1"
+			levelquest = 1
+			namemon = "bandit"
+			cframequest = cframe.new(1061.66699, 16.5166187, 1544.52905, -0.942978859, -3.33851502e-09, 0.332852632, 7.04340497e-09, 1, 2.99841325e-08, -0.332852632, 3.06188177e-08, -0.942978859)
+			cframemon = cframe.new(1199.31287, 52.2717781, 1536.91516, -0.929782331, 6.60215846e-08, -0.368109822, 3.9077392e-08, 1, 8.06501603e-08, 0.368109822, 6.06023249e-08, -0.929782331)
+		elseif mylevel == 10 or mylevel <= 14 then 
+			ms = "monkey [lv. 14]"
+			naemquest = "junglequest"
+			levelquest = 1
+			namemon = "monkey"
+			cframequest = cframe.new(-1604.12012, 36.8521118, 154.23732, 0.0648873374, -4.70858913e-06, -0.997892559, 1.41431883e-07, 1, -4.70933674e-06, 0.997892559, 1.64442184e-07, 0.0648873374)
+			cframemon = cframe.new(-1772.4093017578, 60.860641479492, 54.872589111328)
+		elseif mylevel == 15 or mylevel <= 29 then 
+			ms = "gorilla [lv. 20]"
+			naemquest = "junglequest"
+			levelquest = 2
+			namemon = "gorilla"
+			cframequest = cframe.new(-1604.12012, 36.8521118, 154.23732, 0.0648873374, -4.70858913e-06, -0.997892559, 1.41431883e-07, 1, -4.70933674e-06, 0.997892559, 1.64442184e-07, 0.0648873374)
+			cframemon = cframe.new(-1223.52808, 6.27936459, -502.292664, 0.310949147, -5.66602516e-08, 0.950426519, -3.37275488e-08, 1, 7.06501808e-08, -0.950426519, -5.40241736e-08, 0.310949147)
+		elseif mylevel == 30 or mylevel <= 39 then 
+			ms = "pirate [lv. 35]"
+			naemquest = "buggyquest1"
+			levelquest = 1
+			namemon = "pirate"
+			cframequest = cframe.new(-1139.59717, 4.75205183, 3825.16211, -0.959730506, -7.5857054e-09, 0.280922383, -4.06310328e-08, 1, -1.11807175e-07, -0.280922383, -1.18718916e-07, -0.959730506)
+			cframemon = cframe.new(-1219.32324, 4.75205183, 3915.63452, -0.966492832, -6.91238853e-08, 0.25669381, -5.21195496e-08, 1, 7.3047012e-08, -0.25669381, 5.72206496e-08, -0.966492832)
+		elseif mylevel == 40 or mylevel <= 59 then 
+			ms = "brute [lv. 45]"
+			naemquest = "buggyquest1"
+			levelquest = 2
+			namemon = "brute"
+			cframequest = cframe.new(-1139.59717, 4.75205183, 3825.16211, -0.959730506, -7.5857054e-09, 0.280922383, -4.06310328e-08, 1, -1.11807175e-07, -0.280922383, -1.18718916e-07, -0.959730506)
+			cframemon = cframe.new(-1146.49646, 96.0936813, 4312.1333, -0.978175163, -1.53222057e-08, 0.207781896, -3.33316912e-08, 1, -8.31738873e-08, -0.207781896, -8.82843523e-08, -0.978175163)
+		elseif mylevel == 60 or mylevel <= 74 then 
+			ms = "desert bandit [lv. 60]"
+			naemquest = "desertquest"
+			levelquest = 1
+			namemon = "desert bandit"
+			cframequest = cframe.new(897.031128, 6.43846416, 4388.97168, -0.804044724, 3.68233266e-08, 0.594568789, 6.97835176e-08, 1, 3.24365246e-08, -0.594568789, 6.75715199e-08, -0.804044724)
+			cframemon = cframe.new(932.788818, 6.4503746, 4488.24609, -0.998625934, 3.08948351e-08, 0.0524050146, 2.79967303e-08, 1, -5.60361286e-08, -0.0524050146, -5.44919629e-08, -0.998625934)
+		elseif mylevel == 75 or mylevel <= 89 then 
+			ms = "desert officer [lv. 70]"
+			naemquest = "desertquest"
+			levelquest = 2
+			namemon = "desert officer"
+			cframequest = cframe.new(897.031128, 6.43846416, 4388.97168, -0.804044724, 3.68233266e-08, 0.594568789, 6.97835176e-08, 1, 3.24365246e-08, -0.594568789, 6.75715199e-08, -0.804044724)
+			cframemon = cframe.new(1580.03198, 4.61375761, 4366.86426, 0.135744005, -6.44280718e-08, -0.990743816, 4.35738308e-08, 1, -5.90598574e-08, 0.990743816, -3.51534837e-08, 0.135744005)
+		elseif mylevel == 90 or mylevel <= 99 then 
+			ms = "snow bandit [lv. 90]"
+			naemquest = "snowquest"
+			levelquest = 1
+			namemon = "snow bandits"
+			cframequest = cframe.new(1384.14001, 87.272789, -1297.06482, 0.348555952, -2.53947841e-09, -0.937287986, 1.49860568e-08, 1, 2.86358204e-09, 0.937287986, -1.50443711e-08, 0.348555952)
+			cframemon = cframe.new(1370.24316, 102.403511, -1411.52905, 0.980274439, -1.12995728e-08, 0.197641045, -9.57343449e-09, 1, 1.04655214e-07, -0.197641045, -1.04482936e-07, 0.980274439)
+		elseif mylevel == 100 or mylevel <= 119 then 
+			ms = "snowman [lv. 100]"
+			naemquest = "snowquest"
+			levelquest = 2
+			namemon = "snowman"
+			cframequest = cframe.new(1384.14001, 87.272789, -1297.06482, 0.348555952, -2.53947841e-09, -0.937287986, 1.49860568e-08, 1, 2.86358204e-09, 0.937287986, -1.50443711e-08, 0.348555952)
+			cframemon = cframe.new(1370.24316, 102.403511, -1411.52905, 0.980274439, -1.12995728e-08, 0.197641045, -9.57343449e-09, 1, 1.04655214e-07, -0.197641045, -1.04482936e-07, 0.980274439)
+		elseif mylevel == 120 or mylevel <= 149 then 
+			ms = "chief petty officer [lv. 120]"
+			naemquest = "marinequest2"
+			levelquest = 1
+			namemon = "chief petty officer"
+			cframequest = cframe.new(-5035.0835, 28.6520386, 4325.29443, 0.0243340395, -7.08064647e-08, 0.999703884, -6.36926814e-08, 1, 7.23777944e-08, -0.999703884, -6.54350671e-08, 0.0243340395)
+			cframemon = cframe.new(-4882.8623, 22.6520386, 4255.53516, 0.273695946, -5.40380647e-08, -0.96181643, 4.37720793e-08, 1, -4.37274998e-08, 0.96181643, -3.01326679e-08, 0.273695946)
+		elseif mylevel == 150 or mylevel <= 174 then 
+			ms = "sky bandit [lv. 150]"
+			naemquest = "skyquest"
+			levelquest = 1
+			namemon = "sky bandit"
+			cframequest = cframe.new(-4841.83447, 717.669617, -2623.96436, -0.875942111, 5.59710216e-08, -0.482416272, 3.04023082e-08, 1, 6.08195947e-08, 0.482416272, 3.86078725e-08, -0.875942111)
+			cframemon = cframe.new(-4970.74219, 294.544342, -2890.11353, -0.994874597, -8.61311236e-08, -0.101116329, -9.10836206e-08, 1, 4.43614923e-08, 0.101116329, 5.33441664e-08, -0.994874597)
+		elseif mylevel == 175 or mylevel <= 249 then 
+			ms = "dark master [lv. 175]"
+			naemquest = "skyquest"
+			levelquest = 2
+			namemon = "dark master"
+			cframequest = cframe.new(-4841.83447, 717.669617, -2623.96436, -0.875942111, 5.59710216e-08, -0.482416272, 3.04023082e-08, 1, 6.08195947e-08, 0.482416272, 3.86078725e-08, -0.875942111)
+			cframemon = cframe.new(-5220.58594, 430.693298, -2278.17456, -0.925375521, 1.12086873e-08, 0.379051805, -1.05115507e-08, 1, -5.52320891e-08, -0.379051805, -5.50948407e-08, -0.925375521)
+		elseif mylevel == 250 or mylevel <= 274 then 
+			ms = "toga warrior [lv. 250]"
+			naemquest = "colosseumquest"
+			levelquest = 1
+			namemon = "toga warrior"
+			cframequest = cframe.new(-1576.11743, 7.38933945, -2983.30762, 0.576966345, 1.22114863e-09, 0.816767931, -3.58496594e-10, 1, -1.24185606e-09, -0.816767931, 4.2370063e-10, 0.576966345)
+			cframemon = cframe.new(-1779.97583, 44.6077499, -2736.35474, 0.984437346, 4.10396339e-08, 0.175734788, -3.62286876e-08, 1, -3.05844168e-08, -0.175734788, 2.3741821e-08, 0.984437346)
+		elseif mylevel == 275 or mylevel <= 299 then 
+			ms = "gladiator [lv. 275]"
+			naemquest = "colosseumquest"
+			levelquest = 2
+			namemon = "gladiato"
+			cframequest = cframe.new(-1576.11743, 7.38933945, -2983.30762, 0.576966345, 1.22114863e-09, 0.816767931, -3.58496594e-10, 1, -1.24185606e-09, -0.816767931, 4.2370063e-10, 0.576966345)
+			cframemon = cframe.new(-1274.75903, 58.1895943, -3188.16309, 0.464524001, 6.21005611e-08, 0.885560572, -4.80449414e-09, 1, -6.76054768e-08, -0.885560572, 2.71497012e-08, 0.464524001)
+		elseif mylevel == 300 or mylevel <= 324 then 
+			ms = "military soldier [lv. 300]"
+			naemquest = "magmaquest"
+			levelquest = 1
+			namemon = "military soldier"
+			cframequest = cframe.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
+			cframemon = cframe.new(-5363.01123, 41.5056877, 8548.47266, -0.578253984, -3.29503091e-10, 0.815856814, 9.11209668e-08, 1, 6.498761e-08, -0.815856814, 1.11920997e-07, -0.578253984)
+        elseif mylevel == 325 or mylevel <= 374 then -- military spy
+            ms = "military spy [lv. 325]"
+            naemquest = "magmaquest"
+            levelquest = 2
+            namemon = "military spy"
+            cframequest = cframe.new(-5316.1157226563, 12.262831687927, 8517.00390625)
+            cframemon = cframe.new(-5984.0532226563, 82.14656829834, 8753.326171875)
+		elseif mylevel == 375 or mylevel <= 399 then 
+			ms = "fishman warrior [lv. 375]"
+			naemquest = "fishmanquest"
+			levelquest = 1
+			namemon = "fishman warrior"
+			cframequest = cframe.new(61122.5625, 18.4716396, 1568.16504, 0.893533468, 3.95251609e-09, 0.448996574, -2.34327455e-08, 1, 3.78297464e-08, -0.448996574, -4.43233645e-08, 0.893533468)
+			cframemon = cframe.new(60946.6094, 48.6735229, 1525.91687, -0.0817126185, 8.90751153e-08, 0.996655822, 2.00889794e-08, 1, -8.77269599e-08, -0.996655822, 1.28533992e-08, -0.0817126185)
+		elseif mylevel == 400 or mylevel <= 449 then 
+			ms = "fishman commando [lv. 400]"
+			naemquest = "fishmanquest"
+			levelquest = 2
+			namemon = "fishman commando"
+			cframequest = cframe.new(61122.5625, 18.4716396, 1568.16504, 0.893533468, 3.95251609e-09, 0.448996574, -2.34327455e-08, 1, 3.78297464e-08, -0.448996574, -4.43233645e-08, 0.893533468)
+			cframemon = cframe.new(61885.5039, 18.4828243, 1504.17896, 0.577502489, 0, -0.816389024, -0, 1.00000012, -0, 0.816389024, 0, 0.577502489)
+		elseif mylevel == 450 or mylevel <= 474 then 
+			ms = "god's guard [lv. 450]"
+			naemquest = "skyexp1quest"
+			levelquest = 1
+			namemon = "god's guards"
+			cframequest = cframe.new(-4721.71436, 845.277161, -1954.20105, -0.999277651, -5.56969759e-09, 0.0380011722, -4.14751478e-09, 1, 3.75035256e-08, -0.0380011722, 3.73188307e-08, -0.999277651)
+			cframemon = cframe.new(-4716.95703, 853.089722, -1933.92542, -0.93441087, -6.77488776e-09, -0.356197298, 1.12145182e-08, 1, -4.84390199e-08, 0.356197298, -4.92565206e-08, -0.93441087)
+		elseif mylevel == 475 or mylevel <= 524 then 
+			ms = "shanda [lv. 475]"
+			naemquest = "skyexp1quest"
+			levelquest = 2
+			namemon = "shandas"
+			cframequest = cframe.new(-7863.63672, 5545.49316, -379.826324, 0.362120807, -1.98046344e-08, -0.93213129, 4.05822291e-08, 1, -5.48095125e-09, 0.93213129, -3.58431969e-08, 0.362120807)
+			cframemon = cframe.new(-7685.12354, 5601.05127, -443.171509, 0.150056243, 1.79768236e-08, -0.988677442, 6.67798661e-09, 1, 1.91962481e-08, 0.988677442, -9.48289181e-09, 0.150056243)
+		elseif mylevel == 525 or mylevel <= 549 then 
+			ms = "royal squad [lv. 525]"
+			naemquest = "skyexp2quest"
+			levelquest = 1
+			namemon = "royal squad"
+			cframequest = cframe.new(-7902.66895, 5635.96387, -1411.71802, 0.0504222959, 2.5710392e-08, 0.998727977, 1.12541557e-07, 1, -3.14249675e-08, -0.998727977, 1.13982921e-07, 0.0504222959)
+			cframemon = cframe.new(-7685.02051, 5606.87842, -1442.729, 0.561947823, 7.69527464e-09, -0.827172697, -4.24974544e-09, 1, 6.41599973e-09, 0.827172697, -9.01838604e-11, 0.561947823)
+		elseif mylevel == 550 or mylevel <= 624 then 
+			ms = "royal soldier [lv. 550]"
+			naemquest = "skyexp2quest"
+			levelquest = 2
+			namemon = "royal soldier"
+			cframequest = cframe.new(-7902.66895, 5635.96387, -1411.71802, 0.0504222959, 2.5710392e-08, 0.998727977, 1.12541557e-07, 1, -3.14249675e-08, -0.998727977, 1.13982921e-07, 0.0504222959)
+			cframemon = cframe.new(-7864.44775, 5661.94092, -1708.22351, 0.998389959, 2.28686137e-09, -0.0567218624, 1.99431383e-09, 1, 7.54200258e-08, 0.0567218624, -7.54117195e-08, 0.998389959)
+		elseif mylevel == 625 or mylevel <= 649 then 
+			ms = "galley pirate [lv. 625]"
+			naemquest = "fountainquest"
+			levelquest = 1
+			namemon = "galley pirate"
+			cframequest = cframe.new(5254.60156, 38.5011406, 4049.69678, -0.0504891425, -3.62066501e-08, -0.998724639, -9.87921389e-09, 1, -3.57534553e-08, 0.998724639, 8.06145284e-09, -0.0504891425)
+			cframemon = cframe.new(5595.06982, 41.5013695, 3961.47095, -0.992138803, -2.11610267e-08, -0.125142589, -1.34249509e-08, 1, -6.26613996e-08, 0.125142589, -6.04887518e-08, -0.992138803)
+		elseif mylevel >= 650 then 
+			ms = "galley captain [lv. 650]"
+			naemquest = "fountainquest"
+			levelquest = 2
+			namemon = "galley captain"
+			cframequest = cframe.new(5254.60156, 38.5011406, 4049.69678, -0.0504891425, -3.62066501e-08, -0.998724639, -9.87921389e-09, 1, -3.57534553e-08, 0.998724639, 8.06145284e-09, -0.0504891425)
+			cframemon = cframe.new(5658.5752, 38.5361786, 4928.93506, -0.996873081, 2.12391046e-06, -0.0790185928, 2.16989656e-06, 1, -4.96097414e-07, 0.0790185928, -6.66008248e-07, -0.996873081)
+		end
+	end
+	if newworld then
+		if mylevel == 700 or mylevel <= 724 then 
+			ms = "raider [lv. 700]"
+			naemquest = "area1quest"
+			levelquest = 1
+			namemon = "raider"
+			cframequest = cframe.new(-424.080078, 73.0055847, 1836.91589, 0.253544956, -1.42165932e-08, 0.967323601, -6.00147771e-08, 1, 3.04272909e-08, -0.967323601, -6.5768397e-08, 0.253544956)
+			cframemon = cframe.new(-737.026123, 39.1748352, 2392.57959, 0.272128761, 0, -0.962260842, -0, 1, -0, 0.962260842, 0, 0.272128761)
+		elseif mylevel == 725 or mylevel <= 774 then 
+			ms = "mercenary [lv. 725]"
+			naemquest = "area1quest"
+			levelquest = 2
+			namemon = "mercenary"
+			cframequest = cframe.new(-424.080078, 73.0055847, 1836.91589, 0.253544956, -1.42165932e-08, 0.967323601, -6.00147771e-08, 1, 3.04272909e-08, -0.967323601, -6.5768397e-08, 0.253544956)
+			cframemon = cframe.new(-973.731995, 95.8733215, 1836.46936, 0.999135971, 2.02326991e-08, -0.0415605344, -1.90767793e-08, 1, 2.82094952e-08, 0.0415605344, -2.73922804e-08, 0.999135971)
+		elseif mylevel == 775 or mylevel <= 874 then 
+			ms = "swan pirate [lv. 775]"
+			naemquest = "area2quest"
+			levelquest = 1
+			namemon = "swan pirate"
+			cframequest = cframe.new(632.698608, 73.1055908, 918.666321, -0.0319722369, 8.96074881e-10, -0.999488771, 1.36326533e-10, 1, 8.92172336e-10, 0.999488771, -1.07732087e-10, -0.0319722369)
+			cframemon = cframe.new(970.369446, 142.653198, 1217.3667, 0.162079468, -4.85452638e-08, -0.986777723, 1.03357589e-08, 1, -4.74980872e-08, 0.986777723, -2.50063148e-09, 0.162079468)
+		elseif mylevel == 875 or mylevel <= 899 then 
+			ms = "marine lieutenant [lv. 875]"
+			naemquest = "marinequest3"
+			levelquest = 1
+			namemon = "marine lieutenant"
+			cframequest = cframe.new(-2442.65015, 73.0511475, -3219.11523, -0.873540044, 4.2329841e-08, -0.486752301, 5.64383384e-08, 1, -1.43220786e-08, 0.486752301, -3.99823996e-08, -0.873540044)
+			cframemon = cframe.new(-2913.26367, 73.0011826, -2971.64282, 0.910507619, 0, 0.413492233, 0, 1.00000012, 0, -0.413492233, 0, 0.910507619)
+		elseif mylevel == 900 or mylevel <= 949 then 
+			ms = "marine captain [lv. 900]"
+			naemquest = "marinequest3"
+			levelquest = 2
+			namemon = "marine captain"
+			cframequest = cframe.new(-2442.65015, 73.0511475, -3219.11523, -0.873540044, 4.2329841e-08, -0.486752301, 5.64383384e-08, 1, -1.43220786e-08, 0.486752301, -3.99823996e-08, -0.873540044)
+			cframemon = cframe.new(-1868.67688, 73.0011826, -3321.66333, -0.971402287, 1.06502087e-08, 0.237439692, 3.68856199e-08, 1, 1.06050372e-07, -0.237439692, 1.11775684e-07, -0.971402287)
+		elseif mylevel == 950 or mylevel <= 974 then 
+			ms = "zombie [lv. 950]"
+			naemquest = "zombiequest"
+			levelquest = 1
+			namemon = "zombie"
+			cframequest = cframe.new(-5492.79395, 48.5151672, -793.710571, 0.321800292, -6.24695815e-08, 0.946807742, 4.05616092e-08, 1, 5.21931227e-08, -0.946807742, 2.16082796e-08, 0.321800292)
+			cframemon = cframe.new(-5634.83838, 126.067039, -697.665039, -0.992770672, 6.77618939e-09, 0.120025545, 1.65461245e-08, 1, 8.04023372e-08, -0.120025545, 8.18070234e-08, -0.992770672)
+		elseif mylevel == 975 or mylevel <= 999 then 
+			ms = "vampire [lv. 975]"
+			naemquest = "zombiequest"
+			levelquest = 2
+			namemon = "vampire"
+			cframequest = cframe.new(-5492.79395, 48.5151672, -793.710571, 0.321800292, -6.24695815e-08, 0.946807742, 4.05616092e-08, 1, 5.21931227e-08, -0.946807742, 2.16082796e-08, 0.321800292)
+			cframemon = cframe.new(-6030.32031, 6.4377408, -1313.5564, -0.856965423, 3.9138893e-08, -0.515373945, -1.12178942e-08, 1, 9.45958547e-08, 0.515373945, 8.68467822e-08, -0.856965423)
+		elseif mylevel == 1000 or mylevel <= 1049 then 
+			ms = "snow trooper [lv. 1000]"
+			naemquest = "snowmountainquest"
+			levelquest = 1
+			namemon = "snow trooper"
+			cframequest = cframe.new(604.964966, 401.457062, -5371.69287, 0.353063971, 1.89520435e-08, -0.935599446, -5.81846002e-08, 1, -1.70033754e-09, 0.935599446, 5.50377841e-08, 0.353063971)
+			cframemon = cframe.new(535.893433, 401.457062, -5329.6958, -0.999524176, 0, 0.0308452044, 0, 1, -0, -0.0308452044, 0, -0.999524176)
+		elseif mylevel == 1050 or mylevel <= 1099 then 
+			ms = "winter warrior [lv. 1050]"
+			naemquest = "snowmountainquest"
+			levelquest = 2
+			namemon = "winter warrior"
+			cframequest = cframe.new(604.964966, 401.457062, -5371.69287, 0.353063971, 1.89520435e-08, -0.935599446, -5.81846002e-08, 1, -1.70033754e-09, 0.935599446, 5.50377841e-08, 0.353063971)
+			cframemon = cframe.new(1223.7417, 454.575226, -5170.02148, 0.473996818, 2.56845354e-08, 0.880526543, -5.62456428e-08, 1, 1.10811016e-09, -0.880526543, -5.00510211e-08, 0.473996818)
+		elseif mylevel == 1100 or mylevel <= 1124 then 
+			ms = "lab subordinate [lv. 1100]"
+			naemquest = "icesidequest"
+			levelquest = 1
+			namemon = "lab subordinate"
+			cframequest = cframe.new(-6060.10693, 15.9868021, -4904.7876, -0.411000341, -5.06538868e-07, 0.91163528, 1.26306062e-07, 1, 6.12581289e-07, -0.91163528, 3.66916197e-07, -0.411000341)
+			cframemon = cframe.new(-5769.2041, 37.9288292, -4468.38721, -0.569419742, -2.49055017e-08, 0.822046936, -6.96206541e-08, 1, -1.79282633e-08, -0.822046936, -6.74401548e-08, -0.569419742)
+		elseif mylevel == 1125 or mylevel <= 1174 then 
+			ms = "horned warrior [lv. 1125]"
+			naemquest = "icesidequest"
+			levelquest = 2
+			namemon = "horned warrior"
+			cframequest = cframe.new(-6060.10693, 15.9868021, -4904.7876, -0.411000341, -5.06538868e-07, 0.91163528, 1.26306062e-07, 1, 6.12581289e-07, -0.91163528, 3.66916197e-07, -0.411000341)
+			cframemon = cframe.new(-6400.85889, 24.7645149, -5818.63574, -0.964845479, 8.65926566e-08, -0.262817472, 3.98261392e-07, 1, -1.13260398e-06, 0.262817472, -1.19745812e-06, -0.964845479)
+		elseif mylevel == 1175 or mylevel <= 1199 then 
+			ms = "magma ninja [lv. 1175]"
+			naemquest = "firesidequest"
+			levelquest = 1
+			namemon = "magma ninja"
+			cframequest = cframe.new(-5431.09473, 15.9868021, -5296.53223, 0.831796765, 1.15322464e-07, -0.555080295, -1.10814341e-07, 1, 4.17010995e-08, 0.555080295, 2.68240168e-08, 0.831796765)
+			cframemon = cframe.new(-5496.65576, 58.6890411, -5929.76855, -0.885073781, 0, -0.465450764, 0, 1.00000012, -0, 0.465450764, 0, -0.885073781)
+		elseif mylevel == 1200 or mylevel <= 1249 then 
+			ms = "lava pirate [lv. 1200]"
+			naemquest = "firesidequest"
+			levelquest = 2
+			namemon = "lava pirate"
+			cframequest = cframe.new(-5431.09473, 15.9868021, -5296.53223, 0.831796765, 1.15322464e-07, -0.555080295, -1.10814341e-07, 1, 4.17010995e-08, 0.555080295, 2.68240168e-08, 0.831796765)
+			cframemon = cframe.new(-5169.71729, 34.1234779, -4669.73633, -0.196780294, 0, 0.98044765, 0, 1.00000012, -0, -0.98044765, 0, -0.196780294)
+		elseif mylevel == 1250 or mylevel <= 1274 then 
+			ms = "ship deckhand [lv. 1250]"
+			naemquest = "shipquest1"
+			levelquest = 1
+			namemon = "ship deckhand"
+			cframequest = cframe.new(1037.80127, 125.092171, 32911.6016, -0.244533166, -0, -0.969640911, -0, 1.00000012, -0, 0.96964103, 0, -0.244533136)
+			cframemon = cframe.new(1163.80872, 138.288452, 33058.4258, -0.998580813, 5.49076979e-08, -0.0532564968, 5.57436763e-08, 1, -1.42118655e-08, 0.0532564968, -1.71604082e-08, -0.998580813)
+		elseif mylevel == 1275 or mylevel <= 1299 then 
+			ms = "ship engineer [lv. 1275]"
+			naemquest = "shipquest1"
+			levelquest = 2
+			namemon = "ship engineer"
+			cframequest = cframe.new(1037.80127, 125.092171, 32911.6016, -0.244533166, -0, -0.969640911, -0, 1.00000012, -0, 0.96964103, 0, -0.244533136)
+			cframemon = cframe.new(921.30249023438, 125.400390625, 32937.34375)
+		elseif mylevel == 1300 or mylevel <= 1324 then 
+			ms = "ship steward [lv. 1300]"
+			naemquest = "shipquest2"
+			levelquest = 1
+			namemon = "ship steward"
+			cframequest = cframe.new(968.80957, 125.092171, 33244.125, -0.869560242, 1.51905191e-08, -0.493826836, 1.44108379e-08, 1, 5.38534195e-09, 0.493826836, -2.43357912e-09, -0.869560242)
+			cframemon = cframe.new(917.96057128906, 136.89932250977, 33343.4140625)
+		elseif mylevel == 1325 or mylevel <= 1349 then 
+			ms = "ship officer [lv. 1325]"
+			naemquest = "shipquest2"
+			levelquest = 2
+			namemon = "ship officer"
+			cframequest = cframe.new(968.80957, 125.092171, 33244.125, -0.869560242, 1.51905191e-08, -0.493826836, 1.44108379e-08, 1, 5.38534195e-09, 0.493826836, -2.43357912e-09, -0.869560242)
+			cframemon = cframe.new(944.44964599609, 181.40081787109, 33278.9453125)
+		elseif mylevel == 1350 or mylevel <= 1374 then 
+			ms = "arctic warrior [lv. 1350]"
+			naemquest = "frostquest"
+			levelquest = 1
+			namemon = "arctic warrior"
+			cframequest = cframe.new(5669.43506, 28.2117786, -6482.60107, 0.888092756, 1.02705066e-07, 0.459664226, -6.20391774e-08, 1, -1.03572376e-07, -0.459664226, 6.34646895e-08, 0.888092756)
+			cframemon = cframe.new(5995.07471, 57.3188477, -6183.47314, 0.702747107, -1.53454167e-07, -0.711440146, -1.08168464e-07, 1, -3.22542007e-07, 0.711440146, 3.03620908e-07, 0.702747107)
+		elseif mylevel == 1375 or mylevel <= 1424 then 
+			ms = "snow lurker [lv. 1375]"
+			naemquest = "frostquest"
+			levelquest = 2
+			namemon = "snow lurker"
+			cframequest = cframe.new(5669.43506, 28.2117786, -6482.60107, 0.888092756, 1.02705066e-07, 0.459664226, -6.20391774e-08, 1, -1.03572376e-07, -0.459664226, 6.34646895e-08, 0.888092756)
+			cframemon = cframe.new(5518.00684, 60.5559731, -6828.80518, -0.650781393, -3.64292951e-08, 0.759265184, -4.07668654e-09, 1, 4.44854642e-08, -0.759265184, 2.58550248e-08, -0.650781393)
+		elseif mylevel == 1425 or mylevel <= 1449 then 
+			ms = "sea soldier [lv. 1425]"
+			naemquest = "forgottenquest"
+			levelquest = 1
+			namemon = "sea soldier"
+			cframequest = cframe.new(-3052.99097, 236.881363, -10148.1943, -0.997911751, 4.42321983e-08, 0.064591676, 4.90968759e-08, 1, 7.37270085e-08, -0.064591676, 7.67442998e-08, -0.997911751)
+			cframemon = cframe.new(-3030.3696289063, 191.13464355469, -9859.7958984375)
+		elseif mylevel >= 1450 then 
+			ms = "water fighter [lv. 1450]"
+			naemquest = "forgottenquest"
+			levelquest = 2
+			namemon = "water fighter"
+			cframequest = cframe.new(-3052.99097, 236.881363, -10148.1943, -0.997911751, 4.42321983e-08, 0.064591676, 4.90968759e-08, 1, 7.37270085e-08, -0.064591676, 7.67442998e-08, -0.997911751)
+			cframemon = cframe.new(-3436.7727050781, 290.52191162109, -10503.438476563)
+		end
+	end
+	if threeworld then
+        if mylevel >= 1500 and mylevel <= 1524 then
+            ms = "pirate millionaire [lv. 1500]"
+            naemquest = "pirateportquest"
+            levelquest = 1
+            namemon = "pirate millionaire"
+            cframequest = cframe.new(-290.074677, 42.9034653, 5581.58984)
+            posquest = vector3.new(-290.074677, 42.9034653, 5581.58984)
+            cframemon = cframe.new(81.164993286133, 43.755737304688, 5724.7021484375)
+            posmon = vector3.new(81.164993286133, 43.755737304688, 5724.7021484375)
+        elseif mylevel >= 1525 and mylevel <= 1574 then
+            ms = "pistol billionaire [lv. 1525]"
+            naemquest = "pirateportquest"
+            levelquest = 2
+            namemon = "pistol billionaire"
+            cframequest = cframe.new(-290.074677, 42.9034653, 5581.58984)
+            posquest = vector3.new(-290.074677, 42.9034653, 5581.58984)
+            cframemon = cframe.new(81.164993286133, 43.755737304688, 5724.7021484375)
+            posmon = vector3.new(81.164993286133, 43.755737304688, 5724.7021484375)
+        elseif mylevel >= 1575 and mylevel <= 1599 then
+            ms = "dragon crew warrior [lv. 1575]"
+            naemquest = "amazonquest"
+            levelquest = 1
+            namemon = "dragon crew warrior"
+            cframequest = cframe.new(5832.83594, 51.6806107, -1101.51563)
+            posquest = vector3.new(5832.83594, 51.6806107, -1101.51563)
+            cframemon = cframe.new(6241.9951171875, 51.522083282471, -1243.9771728516)
+            posmon = vector3.new(6241.9951171875, 51.522083282471, -1243.9771728516)
+        elseif mylevel >= 1600 and mylevel <= 1624 then
+            ms = "dragon crew archer [lv. 1600]"
+            naemquest = "amazonquest"
+            levelquest = 2
+            namemon = "dragon crew archer"
+            cframequest = cframe.new(5832.83594, 51.6806107, -1101.51563)
+            posquest = vector3.new(5832.83594, 51.6806107, -1101.51563)
+            cframemon = cframe.new(6488.9155273438, 383.38375854492, -110.66246032715)
+            posmon = vector3.new(6488.9155273438, 383.38375854492, -110.66246032715)
+        elseif mylevel >= 1625 and mylevel <= 1649 then
+            ms = "female islander [lv. 1625]"
+            naemquest = "amazonquest2"
+            levelquest = 1
+            namemon = "female islander"
+            cframequest = cframe.new(5448.86133, 601.516174, 751.130676)
+            posquest = vector3.new(5448.86133, 601.516174, 751.130676)
+            cframemon = cframe.new(5825.2241210938, 682.89245605469, 704.57958984375)
+            posmon = vector3.new(5825.2241210938, 682.89245605469, 704.57958984375)
+        elseif mylevel >= 1650 and mylevel <= 1699 then
+            ms = "giant islander [lv. 1650]"
+            naemquest = "amazonquest2"
+            levelquest = 2
+            namemon = "giant islander"
+            cframequest = cframe.new(5448.86133, 601.516174, 751.130676)
+            posquest = vector3.new(5448.86133, 601.516174, 751.130676)
+            cframemon = cframe.new(4530.3540039063, 656.75695800781, -131.60952758789)
+            posmon = vector3.new(4530.3540039063, 656.75695800781, -131.60952758789)
+        elseif mylevel >= 1700 and mylevel <= 1724 then
+            ms = "marine commodore [lv. 1700]"
+            naemquest = "marinetreeisland"
+            levelquest = 1
+            namemon = "marine commodore"
+            cframequest = cframe.new(2180.54126, 27.8156815, -6741.5498)
+            posquest = vector3.new(2180.54126, 27.8156815, -6741.5498)
+            cframemon = cframe.new(2490.0844726563, 190.4232635498, -7160.0502929688)
+            posmon = vector3.new(2490.0844726563, 190.4232635498, -7160.0502929688)
+        elseif mylevel >= 1725 and mylevel <= 1774 then
+            ms = "marine rear admiral [lv. 1725]"
+            naemquest = "marinetreeisland"
+            levelquest = 2
+            namemon = "marine rear admiral"
+            cframequest = cframe.new(2180.54126, 27.8156815, -6741.5498)
+            posquest = vector3.new(2180.54126, 27.8156815, -6741.5498)
+            cframemon = cframe.new(3951.3903808594, 229.11549377441, -6912.81640625)
+            posmon = vector3.new(3951.3903808594, 229.11549377441, -6912.81640625)
+        elseif mylevel >= 1775 and mylevel <= 1799 then
+            ms = "fishman raider [lv. 1775]"
+            naemquest = "deepforestisland3"
+            levelquest = 1
+            namemon = "fishman raider"
+            cframequest = cframe.new(-10581.6563, 330.872955, -8761.18652)
+            posquest = vector3.new(-10581.6563, 330.872955, -8761.18652)
+            cframemon = cframe.new(-10322.400390625, 390.94473266602, -8580.0908203125)
+            posmon = vector3.new(-10322.400390625, 390.94473266602, -8580.0908203125)
+        elseif mylevel >= 1800 and mylevel <= 1824 then
+            ms = "fishman captain [lv. 1800]"
+            naemquest = "deepforestisland3"
+            levelquest = 2
+            namemon = "fishman captain"
+            cframequest = cframe.new(-10581.6563, 330.872955, -8761.18652)
+            posquest = vector3.new(-10581.6563, 330.872955, -8761.18652)
+            cframemon = cframe.new(-11194.541992188, 442.02795410156, -8608.806640625)
+            posmon = vector3.new(-11194.541992188, 442.02795410156, -8608.806640625)
+        elseif mylevel >= 1825 and mylevel <= 1849 then
+            ms = "forest pirate [lv. 1825]"
+            naemquest = "deepforestisland"
+            levelquest = 1
+            namemon = "forest pirate"
+            cframequest = cframe.new(-13234.04, 331.488495, -7625.40137)
+            posquest = vector3.new(-13234.04, 331.488495, -7625.40137)
+            cframemon = cframe.new(-13225.809570313, 428.19387817383, -7753.1245117188)
+            posmon = vector3.new(-13225.809570313, 428.19387817383, -7753.1245117188)
+        elseif mylevel >= 1850 and mylevel <= 1899 then
+            ms = "mythological pirate [lv. 1850]"
+            naemquest = "deepforestisland"
+            levelquest = 2
+            namemon = "mythological pirate"
+            cframequest = cframe.new(-13234.04, 331.488495, -7625.40137)
+            posquest = vector3.new(-13234.04, 331.488495, -7625.40137)
+            cframemon = cframe.new(-13869.172851563, 564.95251464844, -7084.4135742188)
+            posmon = vector3.new(-13869.172851563, 564.95251464844, -7084.4135742188)
+        elseif mylevel >= 1900 and mylevel <= 1924 then
+            ms = "jungle pirate [lv. 1900]"
+            naemquest = "deepforestisland2"
+            levelquest = 1
+            namemon = "jungle pirate"
+            cframequest = cframe.new(-12680.3818, 389.971039, -9902.01953)
+            posquest = vector3.new(-12680.3818, 389.971039, -9902.01953)
+            cframemon = cframe.new(-11982.221679688, 376.32522583008, -10451.415039063)
+            posmon = vector3.new(-11982.221679688, 376.32522583008, -10451.415039063)
+        elseif mylevel >= 1925 and mylevel <= 1974 then
+            ms = "musketeer pirate [lv. 1925]"
+            naemquest = "deepforestisland2"
+            levelquest = 2
+            namemon = "musketeer pirate"
+            cframequest = cframe.new(-12680.3818, 389.971039, -9902.01953)
+            posquest = vector3.new(-12680.3818, 389.971039, -9902.01953)
+            cframemon = cframe.new(-13282.3046875, 496.23684692383, -9565.150390625)
+            posmon = vector3.new(-13282.3046875, 496.23684692383, -9565.150390625)
+        elseif mylevel >= 1975 and mylevel <= 1999 then
+            ms = "reborn skeleton [lv. 1975]"
+            naemquest = "hauntedquest1"
+            levelquest = 1
+            namemon = "reborn skeleton"
+            cframequest = cframe.new(-9480.8271484375, 142.13066101074, 5566.0712890625)
+            posquest = vector3.new(-9480.8271484375, 142.13066101074, 5566.0712890625)
+            cframemon = cframe.new(-8817.880859375, 191.16761779785, 6298.6557617188)
+            posmon = vector3.new(-8817.880859375, 191.16761779785, 6298.6557617188)
+        elseif mylevel >= 2000 and mylevel <= 2024 then
+            ms = "living zombie [lv. 2000]"
+            naemquest = "hauntedquest1"
+            levelquest = 2
+            namemon = "living zombie"
+            cframequest = cframe.new(-9480.8271484375, 142.13066101074, 5566.0712890625)
+            posquest = vector3.new(-9480.8271484375, 142.13066101074, 5566.0712890625)
+            cframemon = cframe.new(-10125.234375, 183.94705200195, 6242.013671875)
+            posmon = vector3.new(-10125.234375, 183.94705200195, 6242.013671875)
+        elseif mylevel >= 2025 and mylevel <= 2049  then
+            ms = "demonic soul [lv. 2025]"
+            naemquest = "hauntedquest2"
+            levelquest = 1
+            namemon = "demonic soul"
+            cframequest = cframe.new(-9516.9931640625, 178.00651550293, 6078.4653320313)
+            posquest = vector3.new(-9516.9931640625, 178.00651550293, 6078.4653320313)
+            cframemon = cframe.new(-9712.03125, 204.69589233398, 6193.322265625)
+            posmon = vector3.new(-9712.03125, 204.69589233398, 6193.322265625)
+        elseif mylevel > 2050 and mylevel <= 2074 then
+            ms = "posessed mummy [lv. 2050]"
+            naemquest = "hauntedquest2"
+            levelquest = 2
+            namemon = "posessed mummy"
+            cframequest = cframe.new(-9516.9931640625, 178.00651550293, 6078.4653320313)
+            posquest = vector3.new(-9516.9931640625, 178.00651550293, 6078.4653320313)
+            cframemon = cframe.new(-9545.7763671875, 69.619895935059, 6339.5615234375)    
+            posmon = vector3.new(-9545.7763671875, 69.619895935059, 6339.5615234375)
+		elseif mylevel >= 2075 and mylevel <= 2099  then
+            ms = "peanut scout [lv. 2075]"
+            naemquest = "nutsislandquest"
+            levelquest = 1
+            namemon = "peanut scout"
+            cframequest = cframe.new(-2104.5874, 38.1299706, -10194.3496, 0.774643302, -5.8516525e-09, 0.632398427, -4.8110703e-08, 1, 6.81853152e-08, -0.632398427, -8.324443e-08, 0.774643302)
+            posquest = vector3.new(-2104.5874, 38.1299706, -10194.3496, 0.774643302, -5.8516525e-09, 0.632398427, -4.8110703e-08, 1, 6.81853152e-08, -0.632398427, -8.324443e-08, 0.774643302)
+            cframemon = cframe.new(-2099.04126, 107.883263, -10065.6582, -0.847717106, -1.89047302e-08, -0.530448556, -2.99691649e-08, 1, 1.22549917e-08, 0.530448556, 2.62858659e-08, -0.847717106)    
+            poshee = vector3.new(-2099.04126, 107.883263, -10065.6582, -0.847717106, -1.89047302e-08, -0.530448556, -2.99691649e-08, 1, 1.22549917e-08, 0.530448556, 2.62858659e-08, -0.847717106)
+        elseif mylevel >= 2100 and mylevel <= 2124  then
+            ms = "peanut president [lv. 2100]"
+            naemquest = "nutsislandquest"
+            levelquest = 2
+            namemon = "peanut president"
+            cframequest = cframe.new(-2104.2546386719, 38.129970550537, -10194.146484375)
+            posquest = vector3.new(-2104.2546386719, 38.129970550537, -10194.146484375)
+            cframemon = cframe.new(-2137.076171875, 70.30451965332, -10515.509765625)
+            poshee = vector3.new(-2137.076171875, 70.30451965332, -10515.509765625)
+        elseif mylevel >= 2125 and mylevel <= 2149  then
+            ms = "ice cream chef [lv. 2125]"
+            naemquest = "icecreamislandquest"
+            levelquest = 1
+            namemon = "ice cream chef"
+            cframequest = cframe.new(-820.336182, 65.8453293, -10965.7627, 0.763408899, 2.66162115e-08, -0.645915508, 5.54280488e-09, 1, 4.77580073e-08, 0.645915508, -4.00390725e-08, 0.763408899)
+            posquest = vector3.new(-820.336182, 65.8453293, -10965.7627, 0.763408899, 2.66162115e-08, -0.645915508, 5.54280488e-09, 1, 4.77580073e-08, 0.645915508, -4.00390725e-08, 0.763408899)
+            cframemon = cframe.new(-797.381287, 111.218796, -10848.5146, 0.755367041, 4.70847183e-08, 0.655301929, -6.89669344e-09, 1, -6.39021209e-08, -0.655301929, 4.37501413e-08, 0.755367041)    
+            poshee = vector3.new(-797.381287, 111.218796, -10848.5146, 0.755367041, 4.70847183e-08, 0.655301929, -6.89669344e-09, 1, -6.39021209e-08, -0.655301929, 4.37501413e-08, 0.755367041)
+        elseif mylevel >= 2150  and mylevel <= 2199 then
+            ms = "ice cream commander [lv. 2150]"
+            naemquest = "icecreamislandquest"
+            levelquest = 2
+            namemon = "ice cream commander"
+            cframequest = cframe.new(-820.336182, 65.8453293, -10965.7627, 0.763408899, 2.66162115e-08, -0.645915508, 5.54280488e-09, 1, 4.77580073e-08, 0.645915508, -4.00390725e-08, 0.763408899)
+            posquest = vector3.new(-820.336182, 65.8453293, -10965.7627, 0.763408899, 2.66162115e-08, -0.645915508, 5.54280488e-09, 1, 4.77580073e-08, 0.645915508, -4.00390725e-08, 0.763408899)
+            cframemon = cframe.new(-541.803711, 186.394516, -11210.9062, -0.181756258, -5.9845668e-08, 0.983343601, -1.98635615e-08, 1, 5.71878864e-08, -0.983343601, -9.13845e-09, -0.181756258)    
+            poshee = vector3.new(-541.803711, 186.394516, -11210.9062, -0.181756258, -5.9845668e-08, 0.983343601, -1.98635615e-08, 1, 5.71878864e-08, -0.983343601, -9.13845e-09, -0.181756258)
+        elseif mylevel >= 2200 and mylevel <= 2224 then
+                ms = "cookie crafter [lv. 2200]"
+                naemquest = "cakequest1"
+                levelquest = 1
+                namemon = "cookie crafter"
+                cframequest = cframe.new(-2021.96851, 37.7982178, -12026.5137, 0.971608818, 1.80562854e-08, 0.236593053, -1.95491463e-08, 1, 3.96393229e-09, -0.236593053, -8.47658388e-09, 0.971608818)
+                posquest = vector3.new(-2021.96851, 37.7982178, -12026.5137, 0.971608818, 1.80562854e-08, 0.236593053, -1.95491463e-08, 1, 3.96393229e-09, -0.236593053, -8.47658388e-09, 0.971608818)
+                cframemon = cframe.new(-2276.00415, 146.539841, -12203.0146, -0.638633609, -1.0404194e-08, 0.769510984, 1.24565211e-08, 1, 2.38584601e-08, -0.769510984, 2.48222438e-08, -0.638633609)
+                posmon = vector3.new(-2276.00415, 146.539841, -12203.0146, -0.638633609, -1.0404194e-08, 0.769510984, 1.24565211e-08, 1, 2.38584601e-08, -0.769510984, 2.48222438e-08, -0.638633609)
+            elseif mylevel >= 2225 and mylevel <= 2249 then
+                ms = "cake guard [lv. 2225]"
+                naemquest = "cakequest1"
+                levelquest = 2
+                namemon = "cake guard"
+                cframequest = cframe.new(-2021.4884, 37.7982292, -12026.9375, 0.934181511, -2.17844871e-08, 0.356799245, 4.77947726e-09, 0.99999994, 4.85416081e-08, -0.356799245, -4.36413572e-08, 0.934181511)
+                posquest = vector3.new(-2021.4884, 37.7982292, -12026.9375, 0.934181511, -2.17844871e-08, 0.356799245, 4.77947726e-09, 0.99999994, 4.85416081e-08, -0.356799245, -4.36413572e-08, 0.934181511)
+                cframemon = cframe.new(-1520.92725, 195.658432, -12300.3184, -0.830619276, 8.0356088e-08, -0.556840897, -1.90049647e-08, 1, 1.72656073e-07, 0.556840897, 1.53994222e-07, -0.830619276)
+                posmon = vector3.new(-1520.92725, 195.658432, -12300.3184, -0.830619276, 8.0356088e-08, -0.556840897, -1.90049647e-08, 1, 1.72656073e-07, 0.556840897, 1.53994222e-07, -0.830619276)
+            elseif mylevel >= 2250  and mylevel <= 2274 then
+                ms = "baking staff [lv. 2250]"
+                naemquest = "cakequest2" --à¸šà¸·à¹ˆà¸­à¹€à¸ à¸£à¸²à¸°à¸–à¹‰à¸²à¸¡à¸µ giver 1 à¹ƒà¸«à¹‰à¹€à¸£à¸²à¹ƒà¸ªà¹ˆà¸šà¸·à¹ˆà¸­ 1-2 à¸‚à¹‰à¸²à¸‡à¸«à¸¥à¸±à¸‡à¹€à¸„à¸§à¸ª--
+                levelquest = 1
+                namemon = "baking staff"
+                cframequest = cframe.new(-1927.58313, 37.7981453, -12843.8145, -0.961271644, -8.12611574e-07, 0.275603265, -7.71673683e-07, 1, 2.56976563e-07, -0.275603265, 3.43484281e-08, -0.961271644)
+                posquest = vector3.new(-1927.58313, 37.7981453, -12843.8145, -0.961271644, -8.12611574e-07, 0.275603265, -7.71673683e-07, 1, 2.56976563e-07, -0.275603265, 3.43484281e-08, -0.961271644)
+                cframemon = cframe.new(-1917.79016, 157.941437, -12869.1377, 0.697629273, -8.53369329e-06, -0.716459036, 1.89624473e-06, 1, -1.00645202e-05, 0.716459036, 5.66272183e-06, 0.697629273)
+                posmon = vector3.new(-1917.79016, 157.941437, -12869.1377, 0.697629273, -8.53369329e-06, -0.716459036, 1.89624473e-06, 1, -1.00645202e-05, 0.716459036, 5.66272183e-06, 0.697629273)
+            elseif mylevel >= 2275 then
+                ms = "head baker [lv. 2275]"
+                naemquest = "cakequest2" --à¸šà¸·à¹ˆà¸­à¹€à¸ à¸£à¸²à¸°à¸–à¹‰à¸²à¸¡à¸µ giver 1 à¹ƒà¸«à¹‰à¹€à¸£à¸²à¹ƒà¸ªà¹ˆà¸šà¸·à¹ˆà¸­ 1-2 à¸‚à¹‰à¸²à¸‡à¸«à¸¥à¸±à¸‡à¹€à¸„à¸§à¸ª--
+                levelquest = 2
+                namemon = "head baker"
+                cframequest = cframe.new(-1927.58313, 37.7981453, -12843.8145, -0.961271644, -8.12611574e-07, 0.275603265, -7.71673683e-07, 1, 2.56976563e-07, -0.275603265, 3.43484281e-08, -0.961271644)
+                posquest = vector3.new(-1927.58313, 37.7981453, -12843.8145, -0.961271644, -8.12611574e-07, 0.275603265, -7.71673683e-07, 1, 2.56976563e-07, -0.275603265, 3.43484281e-08, -0.961271644)
+                cframemon = cframe.new(-2259.45142, 152.333252, -12800.2656, -0.261799961, -4.23144547e-06, 0.965122163, -1.22252038e-06, 1, 4.05274068e-06, -0.965122163, -1.18874169e-07, -0.261799961)
+                posmon = vector3.new(-2259.45142, 152.333252, -12800.2656, -0.261799961, -4.23144547e-06, 0.965122163, -1.22252038e-06, 1, 4.05274068e-06, -0.965122163, -1.18874169e-07, -0.261799961)
+            end
+        end
+    end
+
+if OldWorld then
+CheckQuest()
+function EquipWeapon(ToolSe)
+	if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
+		local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+		wait(.4)
+		game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
+	end
+end
+end
+
+if NewWorld then
+	CheckQuest()
+	function EquipWeapon(ToolSe)
+		if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
+			local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+			wait(.4)
+			game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
+		end
+	end
+end
+
+if ThreeWorld then
+	CheckQuest()
+	function EquipWeapon(ToolSe)
+		if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
+			local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+			wait(.4)
+			game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
+		end
+	end
+end
+
+
+spawn(function()
+	pcall(function()
+		while wait(.1) do
+			if AutoKaitan and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+			end
+		end
+	end)
+end)
+
+
+spawn(function()
+	while wait() do
+	if AutoKaitan then
+		pcall(function()
+			for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+			   if v.ToolTip == "Melee" then
+			  if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+				  local ToolSe = tostring(v.Name)
+				 local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+				 wait(.4)
+				 game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
+			  end
+			   end
+			end
+		end)
+	end
+	end
+	end)
+
+    
+--magnet
+spawn(function()
+    game:getservice("runservice").heartbeat:connect(function()
+		pcall(function()
+            local mylevel = game.players.localplayer.data.level.value
+            if _g.autofarm or statrmagnet then
+                for i,v in pairs(game.workspace.enemies:getchildren()) do
+                    if (v.humanoidrootpart.position-posmon.position).magnitude <= 100 then
+                        v.humanoidrootpart.cframe = posmon
+                        v.humanoid.jumppower = 0
+                        v.humanoid.walkspeed = 0
+                        v.humanoidrootpart.cancollide = false
+                        if v.humanoid:findfirstchild("animator") then
+                            v.humanoid.animator:destroy()
+                        end
+                        sethiddenproperty(game.players.localplayer, "simulationradius",  math.huge)
+						v.humanoid:changestate(11)
+                    end
+                end
+            end
+        end)
+    end)
+end)
+
+
+    local virtualuser = game:getservice('virtualuser')
+    local kkii = require(game.replicatedstorage.util.camerashaker)
+    spawn(function()
+        while game:getservice("runservice").renderstepped:wait() do
+            if _g.autofarm then
+                pcall(function()
+                 game.players.localplayer.character.stun.value = 0
+                 game.players.localplayer.character.humanoid.sit = false
+                 kkii:stop()
+                end)
+            end
+        end
+    end)
+    
+    spawn(function()
+        game:getservice("runservice").heartbeat:connect(function()
+            if _g.autofarm then
+                for i,v in pairs(game.workspace.enemies:getchildren()) do
+                    if v.name == ms and v:findfirstchild("humanoid") and v.humanoid.health > 0 then
+                        v.humanoid:changestate(11)
+                    end
+                end
+            end
+        end)
+    end)
+    
+    spawn(function()
+        game:getservice("runservice").heartbeat:connect(function()
+            if _g.autofarm and statrmagnet and magnet then
+                checkquest()
+                for i,v in pairs(game.workspace.enemies:getchildren()) do
+                    if v.name == ms and v:findfirstchild("humanoid") and v.humanoid.health > 0 then
+                        if v.name == "factory staff [lv. 800]" or v.name == "dragon crew warrior [lv. 1575]" or v.name == "dragon crew archer [lv. 1600]" and (v.humanoidrootpart.position-game:getservice("players").localplayer.character.humanoidrootpart.position).magnitude <= 200 then
+                            if hidehitblox then
+                                v.humanoidrootpart.transparency = 1
+                            else
+                                v.humanoidrootpart.transparency = 70
+                            end
+                            v.humanoidrootpart.cancollide = false
+                            v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                            v.humanoidrootpart.cframe = posmon
+                        elseif v.name == ms and (v.humanoidrootpart.position-game:getservice("players").localplayer.character.humanoidrootpart.position).magnitude <= 400 then
+                            if hidehitblox then
+                                v.humanoidrootpart.transparency = 1
+                            else
+                                v.humanoidrootpart.transparency = 70
+                            end
+                            v.humanoidrootpart.cancollide = false
+                            v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                            v.humanoidrootpart.cframe = posmon
+                        end
+                    end
+                end
+            end 
+        end)
+    end)
+
+    
+
+
+
+    
+    spawn(function()
+        while wait(.1) do
+            if autokaitan then
+                local lv = game.players.localplayer.data.level.value
+                if lv >= 700 and oldworld then
+                    autokaitan = false
+                    if game.workspace.map.ice.door.cancollide == true and game.workspace.map.ice.door.transparency == 0 then
+                        tp2(cframe.new(4851.8720703125, 5.6514348983765, 718.47094726563))
+                        wait(.5)
+                        game:getservice("replicatedstorage").remotes.commf_:invokeserver("dressrosaquestprogress","detective")
+                        equipweapon("key")
+                        tp2(cframe.new(1347.7124, 37.3751602, -1325.6488))
+                        wait(3)
+                    elseif game.workspace.map.ice.door.cancollide == false and game.workspace.map.ice.door.transparency == 1 then
+                        if game:getservice("workspace").enemies:findfirstchild("ice admiral [lv. 700] [boss]") then
+                            for i,v in pairs(game:getservice("workspace").enemies:getchildren()) do
+                                if v.name == "ice admiral [lv. 700] [boss]" and v.humanoid.health > 0 then
+                                    repeat game:getservice("runservice").heartbeat:wait()
+                                        pcall(function()
+                                            equipweapon(selecttoolweapon)
+                                            tp(v.humanoidrootpart.cframe * cframe.new(0, 20, 10))
+                                            v.humanoidrootpart.cancollide = false
+                                            v.humanoidrootpart.size = vector3.new(60,60,60)
+                                            v.humanoidrootpart.transparency = .8
+                                            game:getservice("virtualuser"):capturecontroller()
+                                            game:getservice("virtualuser"):button1down(vector2.new(1280, 870),workspace.currentcamera.cframe)
+                                        end)
+                                    until v.humanoid.health <= 0 or not v.parent
+                                    game:getservice("replicatedstorage").remotes.commf_:invokeserver("traveldressrosa")
+                                end
+                            end
+                        else
+                            tp2(cframe.new(1347.7124, 37.3751602, -1325.6488))
+                        end
+                    else
+                        game:getservice("replicatedstorage").remotes.commf_:invokeserver("traveldressrosa")
+                    end
+                end
+            end
+        end
+    end)
+
+    
+	spawn(function()
+		pcall(function()
+			while wait() do
+				if autokaitan then
+					if game:getservice("players").localplayer.data.level.value >= 1500 and newworld then
+						auto_farm = false
+						if game:getservice("replicatedstorage").remotes.commf_:invokeserver("zquestprogress","check") == 0 then
+							tp2(cframe.new(-1926.3221435547, 12.819851875305, 1738.3092041016))
+							if (cframe.new(-1926.3221435547, 12.819851875305, 1738.3092041016).position - game.players.localplayer.character.humanoidrootpart.position).magnitude <= 10 then
+								wait(1.1)
+								game:getservice("replicatedstorage").remotes.commf_:invokeserver("zquestprogress","begin")
+							end
+							wait(2)
+							if game:getservice("workspace").enemies:findfirstchild("rip_indra [lv. 1500] [boss]") then
+								for i,v in pairs(game:getservice("workspace").enemies:getchildren()) do
+									if v.name == "rip_indra [lv. 1500] [boss]" then
+										repeat game:getservice("runservice").heartbeat:wait()
+											pcall(function()
+												equipweapon(selecttoolweapon)
+												tp(v.humanoidrootpart.cframe * cframe.new(0,25,25))
+												require(game:getservice("players").localplayer.playerscripts.combatframework).activecontroller.hitboxmagnitude = 1000
+												game:getservice'virtualuser':capturecontroller()
+												game:getservice'virtualuser':button1down(vector2.new(1280, 672))
+												foundindra = true
+												game:getservice("replicatedstorage").remotes.commf_:invokeserver("travelzou")
+												sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+											end)
+										until autothird == false or v.humanoid.health <= 0 or not v.parent
+									end
+								end
+							elseif not game:getservice("workspace").enemies:findfirstchild("rip_indra [lv. 1500] [boss]") and (cframe.new(-26880.93359375, 22.848554611206, 473.18951416016).position - game.players.localplayer.character.humanoidrootpart.position).magnitude <= 1000 then
+								tp(cframe.new(-26880.93359375, 22.848554611206, 473.18951416016))
+							end
+						end
+					end
+				end
+			end
+		end)
+	end)
+
+    
+function checklevel()
+    local lv = game:getservice("players").localplayer.data.level.value
+    if oldworld then
+        if lv == 1 or lv <= 9 or selectmonster == "bandit [lv. 5]" then -- bandit
+            ms = "bandit [lv. 5]"
+            namequest = "banditquest1"
+            questlv = 1
+            namemon = "bandit"
+            cframeq = cframe.new(1060.9383544922, 16.455066680908, 1547.7841796875)
+            cframemon = cframe.new(1038.5533447266, 41.296249389648, 1576.5098876953)
+        elseif lv == 10 or lv <= 14 or selectmonster == "monkey [lv. 14]" then -- monkey
+            ms = "monkey [lv. 14]"
+            namequest = "junglequest"
+            questlv = 1
+            namemon = "monkey"
+            cframeq = cframe.new(-1601.6553955078, 36.85213470459, 153.38809204102)
+            cframemon = cframe.new(-1448.1446533203, 50.851993560791, 63.60718536377)
+        elseif lv == 15 or lv <= 29 or selectmonster == "gorilla [lv. 20]" then -- gorilla
+            ms = "gorilla [lv. 20]"
+            namequest = "junglequest"
+            questlv = 2
+            namemon = "gorilla"
+            cframeq = cframe.new(-1601.6553955078, 36.85213470459, 153.38809204102)
+            cframemon = cframe.new(-1142.6488037109, 40.462348937988, -515.39227294922)
+        elseif lv == 30 or lv <= 39 or selectmonster == "pirate [lv. 35]" then -- pirate
+            ms = "pirate [lv. 35]"
+            namequest = "buggyquest1"
+            questlv = 1
+            namemon = "pirate"
+            cframeq = cframe.new(-1140.1761474609, 4.752049446106, 3827.4057617188)
+            cframemon = cframe.new(-1201.0881347656, 40.628940582275, 3857.5966796875)
+        elseif lv == 40 or lv <= 59 or selectmonster == "brute [lv. 45]" then -- brute
+            ms = "brute [lv. 45]"
+            namequest = "buggyquest1"
+            questlv = 2
+            namemon = "brute"
+            cframeq = cframe.new(-1140.1761474609, 4.752049446106, 3827.4057617188)
+            cframemon = cframe.new(-1387.5324707031, 24.592035293579, 4100.9575195313)
+        elseif lv == 60 or lv <= 74 or selectmonster == "desert bandit [lv. 60]" then -- desert bandit
+            ms = "desert bandit [lv. 60]"
+            namequest = "desertquest"
+            questlv = 1
+            namemon = "desert bandit"
+            cframeq = cframe.new(896.51721191406, 6.4384617805481, 4390.1494140625)
+            cframemon = cframe.new(984.99896240234, 16.109552383423, 4417.91015625)
+        elseif lv == 75 or lv <= 89 or selectmonster == "desert officer [lv. 70]" then -- desert officer
+            ms = "desert officer [lv. 70]"
+            namequest = "desertquest"
+            questlv = 2
+            namemon = "desert officer"
+            cframeq = cframe.new(896.51721191406, 6.4384617805481, 4390.1494140625)
+            cframemon = cframe.new(1547.1510009766, 14.452038764954, 4381.8002929688)
+        elseif lv == 90 or lv <= 99 or selectmonster == "snow bandit [lv. 90]" then -- snow bandit
+            ms = "snow bandit [lv. 90]"
+            namequest = "snowquest"
+            questlv = 1
+            namemon = "snow bandit"
+            cframeq = cframe.new(1386.8073730469, 87.272789001465, -1298.3576660156)
+            cframemon = cframe.new(1356.3028564453, 105.76865386963, -1328.2418212891)
+        elseif lv == 100 or lv <= 119 or selectmonster == "snowman [lv. 100]" then -- snowman
+            ms = "snowman [lv. 100]"
+            namequest = "snowquest"
+            questlv = 2
+            namemon = "snowman"
+            cframeq = cframe.new(1386.8073730469, 87.272789001465, -1298.3576660156)
+            cframemon = cframe.new(1218.7956542969, 138.01184082031, -1488.0262451172)
+        elseif lv == 120 or lv <= 149 or selectmonster == "chief petty officer [lv. 120]" then -- chief petty officer
+            ms = "chief petty officer [lv. 120]"
+            namequest = "marinequest2"
+            questlv = 1
+            namemon = "chief petty officer"
+            cframeq = cframe.new(-5035.49609375, 28.677835464478, 4324.1840820313)
+            cframemon = cframe.new(-4931.1552734375, 65.793113708496, 4121.8393554688)
+        elseif lv == 150 or lv <= 174 or selectmonster == "sky bandit [lv. 150]" then -- sky bandit
+            ms = "sky bandit [lv. 150]"
+            namequest = "skyquest"
+            questlv = 1
+            namemon = "sky bandit"
+            cframeq = cframe.new(-4842.1372070313, 717.69543457031, -2623.0483398438)
+            cframemon = cframe.new(-4955.6411132813, 365.46365356445, -2908.1865234375)
+        elseif lv == 175 or lv <= 249 or selectmonster == "dark master [lv. 175]" then -- dark master
+            ms = "dark master [lv. 175]"
+            namequest = "skyquest"
+            questlv = 2
+            namemon = "dark master"
+            cframeq = cframe.new(-4842.1372070313, 717.69543457031, -2623.0483398438)
+            cframemon = cframe.new(-5148.1650390625, 439.04571533203, -2332.9611816406)
+        elseif lv == 250 or lv <= 274 or selectmonster == "toga warrior [lv. 225]" then -- toga warrior
+            ms = "toga warrior [lv. 250]"
+            namequest = "colosseumquest"
+            questlv = 1
+            namemon = "toga warrior"
+            cframeq = cframe.new(-1577.7890625, 7.4151420593262, -2984.4838867188)
+            cframemon = cframe.new(-1872.5166015625, 49.080215454102, -2913.810546875)
+        elseif lv == 275 or lv <= 299 or selectmonster == "gladiator [lv. 275]" then -- gladiator
+            ms = "gladiator [lv. 275]"
+            namequest = "colosseumquest"
+            questlv = 2
+            namemon = "gladiator"
+            cframeq = cframe.new(-1577.7890625, 7.4151420593262, -2984.4838867188)
+            cframemon = cframe.new(-1521.3740234375, 81.203170776367, -3066.3139648438)
+        elseif lv == 300 or lv <= 324 or selectmonster == "military soldier [lv. 300]" then -- military soldier
+            ms = "military soldier [lv. 300]"
+            namequest = "magmaquest"
+            questlv = 1
+            namemon = "military soldier"
+            cframeq = cframe.new(-5316.1157226563, 12.262831687927, 8517.00390625)
+        elseif lv == 325 or lv <= 374 or selectmonster == "military spy [lv. 325]" then -- military spy
+            ms = "military spy [lv. 325]"
+            namequest = "magmaquest"
+            questlv = 2
+            namemon = "military spy"
+            cframeq = cframe.new(-5316.1157226563, 12.262831687927, 8517.00390625)
+            cframemon = cframe.new(-5984.0532226563, 82.14656829834, 8753.326171875)
+        elseif lv == 375 or lv <= 399 or selectmonster == "fishman warrior [lv. 375]" then -- fishman warrior 
+            ms = "fishman warrior [lv. 375]"
+            namequest = "fishmanquest"
+            questlv = 1
+            namemon = "fishman warrior"
+            cframeq = cframe.new(61122.65234375, 18.497442245483, 1569.3997802734)
+            cframemon = cframe.new(60844.10546875, 98.462875366211, 1298.3985595703)
+			if auto_farm and (cframemon.position - game.players.localplayer.character.humanoidrootpart.position).magnitude > 3000 then
+				game:getservice("replicatedstorage").remotes.commf_:invokeserver("requestentrance",vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+			end
+        elseif lv == 400 or lv <= 449 or selectmonster == "fishman commando [lv. 400]" then -- fishman commando
+            ms = "fishman commando [lv. 400]"
+            namequest = "fishmanquest"
+            questlv = 2
+            namemon = "fishman commando"
+            cframeq = cframe.new(61122.65234375, 18.497442245483, 1569.3997802734)
+            cframemon = cframe.new(61738.3984375, 64.207321166992, 1433.8375244141)
+			if auto_farm and (cframemon.position - game.players.localplayer.character.humanoidrootpart.position).magnitude > 3000 then
+				game:getservice("replicatedstorage").remotes.commf_:invokeserver("requestentrance",vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+			end
+        elseif lv == 450 or lv <= 474 or selectmonster == "god's guard [lv. 450]" then -- god's guard
+            ms = "god's guard [lv. 450]"
+            namequest = "skyexp1quest"
+            questlv = 1
+            namemon = "god's guard"
+            cframeq = cframe.new(-4721.8603515625, 845.30297851563, -1953.8489990234)
+            cframemon = cframe.new(-4628.0498046875, 866.92877197266, -1931.2352294922)
+			if auto_farm and (cframemon.position - game.players.localplayer.character.humanoidrootpart.position).magnitude > 3000 then
+				game:getservice("replicatedstorage").remotes.commf_:invokeserver("requestentrance",vector3.new(-4607.82275, 872.54248, -1667.55688))
+			end
+        elseif lv == 475 or lv <= 524 or selectmonster == "shanda [lv. 475]" then -- shanda
+            ms = "shanda [lv. 475]"
+            namequest = "skyexp1quest"
+            questlv = 2
+            namemon = "shanda"
+            cframeq = cframe.new(-7863.1596679688, 5545.5190429688, -378.42266845703)
+            cframemon = cframe.new(-7685.1474609375, 5601.0751953125, -441.38876342773)
+			if auto_farm and (cframemon.position - game.players.localplayer.character.humanoidrootpart.position).magnitude > 3000 then
+				game:getservice("replicatedstorage").remotes.commf_:invokeserver("requestentrance",vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+			end
+        elseif lv == 525 or lv <= 549 or selectmonster == "royal squad [lv. 525]" then -- royal squad
+            ms = "royal squad [lv. 525]"
+            namequest = "skyexp2quest"
+            questlv = 1
+            namemon = "royal squad"
+            cframeq = cframe.new(-7903.3828125, 5635.9897460938, -1410.923828125)
+            cframemon = cframe.new(-7654.2514648438, 5637.1079101563, -1407.7550048828)
+        elseif lv == 550 or lv <= 624 or selectmonster == "royal soldier [lv. 550]" then -- royal soldier
+            ms = "royal soldier [lv. 550]"
+            namequest = "skyexp2quest"
+            questlv = 2
+            namemon = "royal soldier"
+            cframeq = cframe.new(-7903.3828125, 5635.9897460938, -1410.923828125)
+            cframemon = cframe.new(-7760.4106445313, 5679.9077148438, -1884.8112792969)
+        elseif lv == 625 or lv <= 649 or selectmonster == "galley pirate [lv. 625]" then -- galley pirate
+            ms = "galley pirate [lv. 625]"
+            namequest = "fountainquest"
+            questlv = 1
+            namemon = "galley pirate"
+            cframeq = cframe.new(5258.2788085938, 38.526931762695, 4050.044921875)
+            cframemon = cframe.new(5557.1684570313, 152.32717895508, 3998.7758789063)
+        elseif lv >= 650 or selectmonster == "galley captain [lv. 650]" then -- galley captain
+            ms = "galley captain [lv. 650]"
+            namequest = "fountainquest"
+            questlv = 2
+            namemon = "galley captain"
+            cframeq = cframe.new(5258.2788085938, 38.526931762695, 4050.044921875)
+            cframemon = cframe.new(5677.6772460938, 92.786109924316, 4966.6323242188)
+        end
+    end
+    if newworld then
+        if lv == 700 or lv <= 724 or selectmonster == "raider [lv. 700]" then -- raider
+            ms = "raider [lv. 700]"
+            namequest = "area1quest"
+            questlv = 1
+            namemon = "raider"
+            cframeq = cframe.new(-427.72567749023, 72.99634552002, 1835.9426269531)
+            cframemon = cframe.new(68.874565124512, 93.635643005371, 2429.6752929688)
+        elseif lv == 725 or lv <= 774 or selectmonster == "mercenary [lv. 725]" then -- mercenary
+            ms = "mercenary [lv. 725]"
+            namequest = "area1quest"
+            questlv = 2
+            namemon = "mercenary"
+            cframeq = cframe.new(-427.72567749023, 72.99634552002, 1835.9426269531)
+            cframemon = cframe.new(-864.85009765625, 122.47104644775, 1453.1505126953)
+        elseif lv == 775 or lv <= 874 or selectmonster == "swan pirate [lv. 775]" then -- swan pirate
+            ms = "swan pirate [lv. 775]"
+            namequest = "area2quest"
+            questlv = 1
+            namemon = "swan pirate"
+            cframeq = cframe.new(635.61151123047, 73.096351623535, 917.81298828125)
+            cframemon = cframe.new(1065.3669433594, 137.64012145996, 1324.3798828125)
+        elseif lv == 875 or lv <= 899 or selectmonster == "marine lieutenant [lv. 875]" then -- marine lieutenant
+            ms = "marine lieutenant [lv. 875]"
+            namequest = "marinequest3"
+            questlv = 1
+            namemon = "marine lieutenant"
+            cframeq = cframe.new(-2440.9934082031, 73.04190826416, -3217.7082519531)
+            cframemon = cframe.new(-2489.2622070313, 84.613594055176, -3151.8830566406)
+        elseif lv == 900 or lv <= 949 or selectmonster == "marine captain [lv. 900]" then -- marine captain
+            ms = "marine captain [lv. 900]"
+            namequest = "marinequest3"
+            questlv = 2
+            namemon = "marine captain"
+            cframeq = cframe.new(-2440.9934082031, 73.04190826416, -3217.7082519531)
+            cframemon = cframe.new(-2335.2026367188, 79.786659240723, -3245.8674316406)
+        elseif lv == 950 or lv <= 974 or selectmonster == "zombie [lv. 950]" then -- zombie
+            ms = "zombie [lv. 950]"
+            namequest = "zombiequest"
+            questlv = 1
+            namemon = "zombie"
+            cframeq = cframe.new(-5494.3413085938, 48.505931854248, -794.59094238281)
+            cframemon = cframe.new(-5536.4970703125, 101.08577728271, -835.59075927734)
+        elseif lv == 975 or lv <= 999 or selectmonster == "vampire [lv. 975]" then -- vampire
+            ms = "vampire [lv. 975]"
+            namequest = "zombiequest"
+            questlv = 2
+            namemon = "vampire"
+            cframeq = cframe.new(-5494.3413085938, 48.505931854248, -794.59094238281)
+            cframemon = cframe.new(-5806.1098632813, 16.722528457642, -1164.4384765625)
+        elseif lv == 1000 or lv <= 1049 or selectmonster == "snow trooper [lv. 1000]" then -- snow trooper
+            ms = "snow trooper [lv. 1000]"
+            namequest = "snowmountainquest"
+            questlv = 1
+            namemon = "snow trooper"
+            cframeq = cframe.new(607.05963134766, 401.44781494141, -5370.5546875)
+            cframemon = cframe.new(535.21051025391, 432.74209594727, -5484.9165039063)
+        elseif lv == 1050 or lv <= 1099 or selectmonster == "winter warrior [lv. 1050]" then -- winter warrior
+            ms = "winter warrior [lv. 1050]"
+            namequest = "snowmountainquest"
+            questlv = 2
+            namemon = "winter warrior"
+            cframeq = cframe.new(607.05963134766, 401.44781494141, -5370.5546875)
+            cframemon = cframe.new(1234.4449462891, 456.95419311523, -5174.130859375)
+        elseif lv == 1100 or lv <= 1124 or selectmonster == "lab subordinate [lv. 1100]" then -- lab subordinate
+            ms = "lab subordinate [lv. 1100]"
+            namequest = "icesidequest"
+            questlv = 1
+            namemon = "lab subordinate"
+            cframeq = cframe.new(-6061.841796875, 15.926671981812, -4902.0385742188)
+            cframemon = cframe.new(-5720.5576171875, 63.309471130371, -4784.6103515625)
+        elseif lv == 1125 or lv <= 1174 or selectmonster == "horned warrior [lv. 1125]" then -- horned warrior
+            ms = "horned warrior [lv. 1125]"
+            namequest = "icesidequest"
+            questlv = 2
+            namemon = "horned warrior"
+            cframeq = cframe.new(-6061.841796875, 15.926671981812, -4902.0385742188)
+            cframemon = cframe.new(-6292.751953125, 91.181983947754, -5502.6499023438)
+        elseif lv == 1175 or lv <= 1199 or selectmonster == "magma ninja [lv. 1175]" then -- magma ninja
+            ms = "magma ninja [lv. 1175]"
+            namequest = "firesidequest"
+            questlv = 1
+            namemon = "magma ninja"
+            cframeq = cframe.new(-5429.0473632813, 15.977565765381, -5297.9614257813)
+            cframemon = cframe.new(-5461.8388671875, 130.36347961426, -5836.4702148438)
+        elseif lv == 1200 or lv <= 1249 or selectmonster == "lava pirate [lv. 1200]" then -- lava pirate
+            ms = "lava pirate [lv. 1200]"
+            namequest = "firesidequest"
+            questlv = 2
+            namemon = "lava pirate"
+            cframeq = cframe.new(-5429.0473632813, 15.977565765381, -5297.9614257813)
+            cframemon = cframe.new(-5251.1889648438, 55.164535522461, -4774.4096679688)
+        elseif lv == 1250 or lv <= 1274 or selectmonster == "ship deckhand [lv. 1250]" then -- ship deckhand
+            ms = "ship deckhand [lv. 1250]"
+            namequest = "shipquest1"
+            questlv = 1
+            namemon = "ship deckhand"
+            cframeq = cframe.new(1040.2927246094, 125.08293151855, 32911.0390625)
+            cframemon = cframe.new(921.12365722656, 125.9839553833, 33088.328125)
+			if auto_farm and (cframemon.position - game.players.localplayer.character.humanoidrootpart.position).magnitude > 20000 then
+				game:getservice("replicatedstorage").remotes.commf_:invokeserver("requestentrance",vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
+        elseif lv == 1275 or lv <= 1299 or selectmonster == "ship engineer [lv. 1275]" then -- ship engineer
+            ms = "ship engineer [lv. 1275]"
+            namequest = "shipquest1"
+            questlv = 2
+            namemon = "ship engineer"
+            cframeq = cframe.new(1040.2927246094, 125.08293151855, 32911.0390625)
+            cframemon = cframe.new(886.28179931641, 40.47790145874, 32800.83203125)
+			if auto_farm and (cframemon.position - game.players.localplayer.character.humanoidrootpart.position).magnitude > 20000 then
+				game:getservice("replicatedstorage").remotes.commf_:invokeserver("requestentrance",vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
+        elseif lv == 1300 or lv <= 1324 or selectmonster == "ship steward [lv. 1300]" then -- ship steward
+            ms = "ship steward [lv. 1300]"
+            namequest = "shipquest2"
+            questlv = 1
+            namemon = "ship steward"
+            cframeq = cframe.new(971.42065429688, 125.08293151855, 33245.54296875)
+            cframemon = cframe.new(943.85504150391, 129.58183288574, 33444.3671875)
+			if auto_farm and (cframemon.position - game.players.localplayer.character.humanoidrootpart.position).magnitude > 20000 then
+				game:getservice("replicatedstorage").remotes.commf_:invokeserver("requestentrance",vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
+        elseif lv == 1325 or lv <= 1349 or selectmonster == "ship officer [lv. 1325]" then -- ship officer
+            ms = "ship officer [lv. 1325]"
+            namequest = "shipquest2"
+            questlv = 2
+            namemon = "ship officer"
+            cframeq = cframe.new(971.42065429688, 125.08293151855, 33245.54296875)
+            cframemon = cframe.new(955.38458251953, 181.08335876465, 33331.890625)
+			if auto_farm and (cframemon.position - game.players.localplayer.character.humanoidrootpart.position).magnitude > 20000 then
+				game:getservice("replicatedstorage").remotes.commf_:invokeserver("requestentrance",vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
+        elseif lv == 1350 or lv <= 1374 or selectmonster == "arctic warrior [lv. 1350]" then -- arctic warrior
+            ms = "arctic warrior [lv. 1350]"
+            namequest = "frostquest"
+            questlv = 1
+            namemon = "arctic warrior"
+            cframeq = cframe.new(5668.1372070313, 28.202531814575, -6484.6005859375)
+            cframemon = cframe.new(5935.4541015625, 77.26016998291, -6472.7568359375)
+			if auto_farm and (cframemon.position - game.players.localplayer.character.humanoidrootpart.position).magnitude > 20000 then
+				game:getservice("replicatedstorage").remotes.commf_:invokeserver("requestentrance",vector3.new(-6508.5581054688, 89.034996032715, -132.83953857422))
+			end
+        elseif lv == 1375 or lv <= 1424 or selectmonster == "snow lurker [lv. 1375]" then -- snow lurker
+            ms = "snow lurker [lv. 1375]"
+            namequest = "frostquest"
+            questlv = 2
+            namemon = "snow lurker"
+            cframeq = cframe.new(5668.1372070313, 28.202531814575, -6484.6005859375)
+            cframemon = cframe.new(5628.482421875, 57.574996948242, -6618.3481445313)
+        elseif lv == 1425 or lv <= 1449 or selectmonster == "sea soldier [lv. 1425]" then -- sea soldier
+            ms = "sea soldier [lv. 1425]"
+            namequest = "forgottenquest"
+            questlv = 1
+            namemon = "sea soldier"
+            cframeq = cframe.new(-3054.5827636719, 236.87213134766, -10147.790039063)
+            cframemon = cframe.new(-3185.0153808594, 58.789089202881, -9663.6064453125)
+        elseif lv >= 1450 or selectmonster == "water fighter [lv. 1450]" then -- water fighter
+            ms = "water fighter [lv. 1450]"
+            namequest = "forgottenquest"
+            questlv = 2
+            namemon = "water fighter"
+            cframeq = cframe.new(-3054.5827636719, 236.87213134766, -10147.790039063)
+            cframemon = cframe.new(-3262.9301757813, 298.69036865234, -10552.529296875)
+		end
+	end
+	if threeworld then
+		if lv == 1500 or lv <= 1524 or selectmonster == "pirate millionaire [lv. 1500]" then -- pirate millionaire
+			ms = "pirate millionaire [lv. 1500]"
+			namequest = "pirateportquest"
+			questlv = 1
+			namemon = "pirate millionaire"
+			cframeq = cframe.new(-289.61752319336, 43.819011688232, 5580.0903320313)
+			cframemon = cframe.new(-435.68109130859, 189.69866943359, 5551.0756835938)
+		elseif lv == 1525 or lv <= 1574 or selectmonster == "pistol billionaire [lv. 1525]" then -- pistol billoonaire
+			ms = "pistol billionaire [lv. 1525]"
+			namequest = "pirateportquest"
+			questlv = 2
+			namemon = "pistol billionaire"
+			cframeq = cframe.new(-289.61752319336, 43.819011688232, 5580.0903320313)
+			cframemon = cframe.new(-236.53652954102, 217.46676635742, 6006.0883789063)
+		elseif lv == 1575 or lv <= 1599 or selectmonster == "dragon crew warrior [lv. 1575]" then -- dragon crew warrior
+			ms = "dragon crew warrior [lv. 1575]"
+			namequest = "amazonquest"
+			questlv = 1
+			namemon = "dragon crew warrior"
+			cframeq = cframe.new(5833.1147460938, 51.60498046875, -1103.0693359375)
+			cframemon = cframe.new(6301.9975585938, 104.77153015137, -1082.6075439453)
+		elseif lv == 1600 or lv <= 1624 or selectmonster == "dragon crew archer [lv. 1600]" then -- dragon crew archer
+			ms = "dragon crew archer [lv. 1600]"
+			namequest = "amazonquest"
+			questlv = 2
+			namemon = "dragon crew archer"
+			cframeq = cframe.new(5833.1147460938, 51.60498046875, -1103.0693359375)
+			cframemon = cframe.new(6831.1171875, 441.76708984375, 446.58615112305)
+		elseif lv == 1625 or lv <= 1649 or selectmonster == "female islander [lv. 1625]" then -- female islander
+			ms = "female islander [lv. 1625]"
+			namequest = "amazonquest2"
+			questlv = 1
+			namemon = "female islander"
+			cframeq = cframe.new(5446.8793945313, 601.62945556641, 749.45672607422)
+			cframemon = cframe.new(5792.5166015625, 848.14392089844, 1084.1818847656)
+		elseif lv == 1650 or lv <= 1699 or selectmonster == "giant islander [lv. 1650]" then -- giant islander
+			ms = "giant islander [lv. 1650]"
+			namequest = "amazonquest2"
+			questlv = 2
+			namemon = "giant islander"
+			cframeq = cframe.new(5446.8793945313, 601.62945556641, 749.45672607422)
+			cframemon = cframe.new(5009.5068359375, 664.11071777344, -40.960144042969)
+		elseif lv == 1700 or lv <= 1724 or selectmonster == "marine commodore [lv. 1700]" then -- marine commodore
+			ms = "marine commodore [lv. 1700]"
+			namequest = "marinetreeisland"
+			questlv = 1
+			namemon = "marine commodore"
+			cframeq = cframe.new(2179.98828125, 28.731239318848, -6740.0551757813)
+			cframemon = cframe.new(2198.0063476563, 128.71075439453, -7109.5043945313)
+		elseif lv == 1725 or lv <= 1774 or selectmonster == "marine rear admiral [lv. 1725]" then -- marine rear admiral
+			ms = "marine rear admiral [lv. 1725]"
+			namequest = "marinetreeisland"
+			questlv = 2
+			namemon = "marine rear admiral"
+			cframeq = cframe.new(2179.98828125, 28.731239318848, -6740.0551757813)
+			cframemon = cframe.new(3294.3142089844, 385.41125488281, -7048.6342773438)
+		elseif lv == 1775 or lv <= 1799 or selectmonster == "fishman raider [lv. 1775]" then -- fishman raide
+			ms = "fishman raider [lv. 1775]"
+			namequest = "deepforestisland3"
+			questlv = 1
+			namemon = "fishman raider"
+			cframeq = cframe.new(-10582.759765625, 331.78845214844, -8757.666015625)
+			cframemon = cframe.new(-10553.268554688, 521.38439941406, -8176.9458007813)
+		elseif lv == 1800 or lv <= 1824 or selectmonster == "fishman captain [lv. 1800]" then -- fishman captain
+			ms = "fishman captain [lv. 1800]"
+			namequest = "deepforestisland3"
+			questlv = 2
+			namemon = "fishman captain"
+			cframeq = cframe.new(-10583.099609375, 331.78845214844, -8759.4638671875)
+			cframemon = cframe.new(-10789.401367188, 427.18637084961, -9131.4423828125)
+		elseif lv == 1825 or lv <= 1849 or selectmonster == "forest pirate [lv. 1825]" then -- forest pirate
+			ms = "forest pirate [lv. 1825]"
+			namequest = "deepforestisland"
+			questlv = 1
+			namemon = "forest pirate"
+			cframeq = cframe.new(-13232.662109375, 332.40396118164, -7626.4819335938)
+			cframemon = cframe.new(-13489.397460938, 400.30349731445, -7770.251953125)
+		elseif lv == 1850 or lv <= 1899 or selectmonster == "mythological pirate [lv. 1850]" then -- mythological pirate
+			ms = "mythological pirate [lv. 1850]"
+			namequest = "deepforestisland"
+			questlv = 2
+			namemon = "mythological pirate"
+			cframeq = cframe.new(-13232.662109375, 332.40396118164, -7626.4819335938)
+			cframemon = cframe.new(-13508.616210938, 582.46228027344, -6985.3037109375)
+		elseif lv == 1900 or lv <= 1924 or selectmonster == "jungle pirate [lv. 1900]" then -- jungle pirate
+			ms = "jungle pirate [lv. 1900]"
+			namequest = "deepforestisland2"
+			questlv = 1
+			namemon = "jungle pirate"
+			cframeq = cframe.new(-12682.096679688, 390.88653564453, -9902.1240234375)
+			cframemon = cframe.new(-12267.103515625, 459.75262451172, -10277.200195313)
+		elseif lv == 1925 or lv <= 1974 or selectmonster == "musketeer pirate [lv. 1925]" then -- musketeer pirate
+			ms = "musketeer pirate [lv. 1925]"
+			namequest = "deepforestisland2"
+			questlv = 2
+			namemon = "musketeer pirate"
+			cframeq = cframe.new(-12682.096679688, 390.88653564453, -9902.1240234375)
+			cframemon = cframe.new(-13291.5078125, 520.47338867188, -9904.638671875)
+		elseif lv == 1975 or lv <= 1999 or selectmonster == "reborn skeleton [lv. 1975]" then
+			ms = "reborn skeleton [lv. 1975]"
+			namequest = "hauntedquest1"
+			questlv = 1
+			namemon = "reborn skeleton"
+			cframeq = cframe.new(-9480.80762, 142.130661, 5566.37305, -0.00655503059, 4.52954225e-08, -0.999978542, 2.04920472e-08, 1, 4.51620679e-08, 0.999978542, -2.01955679e-08, -0.00655503059)
+			cframemon = cframe.new(-8761.77148, 183.431747, 6168.33301, 0.978073597, -1.3950732e-05, -0.208259016, -1.08073925e-06, 1, -7.20630269e-05, 0.208259016, 7.07080399e-05, 0.978073597)
+		elseif lv == 2000 or lv <= 2024 or selectmonster == "living zombie [lv. 2000]" then
+			ms = "living zombie [lv. 2000]"
+			namequest = "hauntedquest1"
+			questlv = 2
+			namemon = "living zombie"
+			cframeq = cframe.new(-9480.80762, 142.130661, 5566.37305, -0.00655503059, 4.52954225e-08, -0.999978542, 2.04920472e-08, 1, 4.51620679e-08, 0.999978542, -2.01955679e-08, -0.00655503059)
+			cframemon = cframe.new(-10103.7529, 238.565979, 6179.75977, 0.999474227, 2.77547141e-08, 0.0324240364, -2.58006327e-08, 1, -6.06848474e-08, -0.0324240364, 5.98163865e-08, 0.999474227)
+		elseif lv == 2025 or lv <= 2049 or selectmonster == "demonic soul [lv. 2025]" then
+			ms = "demonic soul [lv. 2025]"
+			namequest = "hauntedquest2"
+			questlv = 1
+			namemon = "demonic soul"
+			cframeq = cframe.new(-9515.39551, 172.266037, 6078.89746, 0.0121199936, -9.78649624e-08, 0.999926567, 2.30358754e-08, 1, 9.75929382e-08, -0.999926567, 2.18513581e-08, 0.0121199936)
+			cframemon = cframe.new(-9709.30762, 204.695892, 6044.04688, -0.845798075, -3.4587876e-07, -0.533503294, -4.46235369e-08, 1, -5.77571257e-07, 0.533503294, -4.64701827e-07, -0.845798075)
+		elseif lv == 2050 or lv <= 2074 or selectmonster == "posessed mummy [lv. 2050]" then
+			ms = "posessed mummy [lv. 2050]"
+			namequest = "hauntedquest2"
+			questlv = 2
+			namemon = "posessed mummy"
+			cframeq = cframe.new(-9515.39551, 172.266037, 6078.89746, 0.0121199936, -9.78649624e-08, 0.999926567, 2.30358754e-08, 1, 9.75929382e-08, -0.999926567, 2.18513581e-08, 0.0121199936)
+			cframemon = cframe.new(-9554.11035, 65.6141663, 6041.73584, -0.877069294, 5.33355795e-08, -0.480364174, 2.06420765e-08, 1, 7.33423562e-08, 0.480364174, 5.44105987e-08, -0.877069294)
+        elseif lv == 2075 or lv <= 2099 or selectmonster == "peanut scout [lv. 2075]" then
+			ms = "peanut scout [lv. 2075]"
+			namequest = "nutsislandquest"
+			questlv = 1
+			namemon = "peanut scout"
+			cframeq = cframe.new(-2105.53198, 37.2495995, -10195.5088, -0.766061664, 0, -0.642767608, 0, 1, 0, 0.642767608, 0, -0.766061664)
+			cframemon = cframe.new(-2262.80298, 84.4387054, -10255.4922, -0.999993503, 4.39228813e-08, 0.00361041375, 4.39404282e-08, 1, 4.78073403e-09, -0.00361041375, 4.93934582e-09, -0.999993503)
+        elseif lv == 2100 or lv <= 2124 or selectmonster == "peanut president [lv. 2100]" then
+			ms = "peanut president [lv. 2100]"
+			namequest = "nutsislandquest"
+			questlv = 2
+			namemon = "peanut president"
+            cframeq = cframe.new(-2104.61475, 38.1299706, -10194.1787, 0.767064989, -6.67286102e-08, 0.641569376, 3.32893402e-09, 1, 1.00028309e-07, -0.641569376, -7.4592478e-08, 0.767064989)
+            cframemon = cframe.new(-2182.97241, 88.2648697, -10552.2607, 0.881975889, -1.15795429e-09, 0.471294552, 1.33532996e-09, 1, -4.19579094e-11, -0.471294552, 6.66339595e-10, 0.881975889)
+        elseif lv == 2125 or lv <= 2149 or selectmonster == "ice cream chef [lv. 2125]" then
+            ms = "ice cream chef [lv. 2125]"
+            namequest = "icecreamislandquest"
+            questlv = 1
+            namemon = "ice cream chef"
+            cframeq = cframe.new(-820.450378, 65.8453293, -10966.0752, 0.766577005, 3.68559938e-08, -0.642152369, 1.27155431e-09, 1, 5.89124021e-08, 0.642152369, -4.59774228e-08, 0.766577005)
+            cframemon = cframe.new(-794.760315, 133.070297, -10952.6885, -0.788999617, -7.32182599e-08, 0.614393711, -9.73502026e-08, 1, -5.84480642e-09, -0.614393711, -6.4422899e-08, -0.788999617)
+        elseif lv == 2150 or lv <= 2199 or selectmonster == "ice cream commander [lv. 2150]" then
+            ms = "ice cream commander [lv. 2150]"
+            namequest = "icecreamislandquest"
+            questlv = 2
+            namemon = "ice cream commander"
+            cframeq = cframe.new(-820.450378, 65.8453293, -10966.0752, 0.766577005, 3.68559938e-08, -0.642152369, 1.27155431e-09, 1, 5.89124021e-08, 0.642152369, -4.59774228e-08, 0.766577005)
+            cframemon = cframe.new(-655.430725, 126.896965, -11221.2744, 0.978674889, -1.0593471e-08, -0.205415353, 1.49809232e-08, 1, 1.98036911e-08, 0.205415353, -2.24586856e-08, 0.978674889)
+        elseif lv == 2200 or lv <= 2224 or selectmonster == "cookie crafter [lv. 2200]" then
+                ms = "cookie crafter [lv. 2200]"
+                namequest = "cakequest1" 
+                questlv = 1
+                namemon = "cookie crafter"
+                cframeq = cframe.new(-2021.96851, 37.7982178, -12026.5137, 0.971608818, 1.80562854e-08, 0.236593053, -1.95491463e-08, 1, 3.96393229e-09, -0.236593053, -8.47658388e-09, 0.971608818)
+                cframemon = cframe.new(-2276.00415, 146.539841, -12203.0146, -0.638633609, -1.0404194e-08, 0.769510984, 1.24565211e-08, 1, 2.38584601e-08, -0.769510984, 2.48222438e-08, -0.638633609)
+            elseif lv >= 2225 and lv <= 2249 or selectmonster == "cake guard [lv. 2225]" then
+                ms = "cake guard [lv. 2225]"
+                namequest = "cakequest1" 
+                questlv = 2
+                namemon = "cake guard"
+                cframeq = cframe.new(-2021.4884, 37.7982292, -12026.9375, 0.934181511, -2.17844871e-08, 0.356799245, 4.77947726e-09, 0.99999994, 4.85416081e-08, -0.356799245, -4.36413572e-08, 0.934181511)
+                cframemon = cframe.new(-1520.92725, 195.658432, -12300.3184, -0.830619276, 8.0356088e-08, -0.556840897, -1.90049647e-08, 1, 1.72656073e-07, 0.556840897, 1.53994222e-07, -0.830619276)
+            elseif lv >= 2250  and lv <= 2274 or selectmonster == "baking staff [lv. 2250]" then
+                ms = "baking staff [lv. 2250]"
+                namequest = "cakequest2"
+                questlv = 1
+                namemon = "baking staff"
+                cframeq = cframe.new(-1927.58313, 37.7981453, -12843.8145, -0.961271644, -8.12611574e-07, 0.275603265, -7.71673683e-07, 1, 2.56976563e-07, -0.275603265, 3.43484281e-08, -0.961271644)
+                cframemon = cframe.new(-1917.79016, 157.941437, -12869.1377, 0.697629273, -8.53369329e-06, -0.716459036, 1.89624473e-06, 1, -1.00645202e-05, 0.716459036, 5.66272183e-06, 0.697629273)
+            elseif lv >= 2275 or selectmonster == "head baker [lv. 2275]" then
+                ms = "head baker [lv. 2275]"
+                namequest = "cakequest2"
+                questlv = 2
+                namemon = "head baker"
+                cframeq = cframe.new(-1927.58313, 37.7981453, -12843.8145, -0.961271644, -8.12611574e-07, 0.275603265, -7.71673683e-07, 1, 2.56976563e-07, -0.275603265, 3.43484281e-08, -0.961271644)
+                cframemon = cframe.new(-2259.45142, 152.333252, -12800.2656, -0.261799961, -4.23144547e-06, 0.965122163, -1.22252038e-06, 1, 4.05274068e-06, -0.965122163, -1.18874169e-07, -0.261799961)
+            end
+        end
+    end
+
+    
+spawn(function()
+    pcall(function()
+        while task.wait() do
+            if clip or _g.autofarm or autokaitan then
+                if not game.players.localplayer.character.humanoidrootpart:findfirstchild("bodyclip") then
+                    local noclip = instance.new("bodyvelocity")
+                    noclip.name = "bodyclip"
+                    noclip.parent = game.players.localplayer.character.humanoidrootpart
+                    noclip.maxforce = vector3.new(150000,150000,150000)
+                    noclip.velocity = vector3.new(0,0,0)
+                end
+            elseif _g.autofarm == false or _g.autosecondsea == false or _g.autosaber == false or _g.autosaberhop == false or _g.autopole == false or _g.autofarmboss == false or _g.clip == false then
+                if game.players.localplayer.character.humanoidrootpart:findfirstchild("bodyclip") then
+                    game.players.localplayer.character.humanoidrootpart.bodyclip:destroy()
+                end
+            end 
+        end
+    end)
+end)
+ 
+spawn(function()
+    pcall(function()
+        game:getservice("runservice").stepped:connect(function()
+            if clip or _g.autofarm or autokaitan then
+                for _, v in pairs(game.players.localplayer.character:getdescendants()) do
+                    if v:isa("basepart") then
+                        v.cancollide = false    
+                    end
+                end
+            end
+        end)
+    end)
+end)
+
+
+spawn(function()
+    pcall(function()
+        game:getservice("runservice").heartbeat:connect(function()
+            if noclip then
+				if not game.players.localplayer.character.humanoidrootpart:findfirstchild("bodyclip") then
+                    local noclip = instance.new("bodyvelocity")
+                    noclip.name = "bodyclip"
+                    noclip.parent = game.players.localplayer.character.humanoidrootpart
+                    noclip.maxforce = vector3.new(150000,150000,150000)
+                    noclip.velocity = vector3.new(0,0,0)
+             while true do 
+                 wait(0.1) 
+                 game:getservice('tweenservice'):create(
+                     paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                 {color = color3.fromrgb(255, 0, 0)}):play() 
+                 wait(.5)
+ 
+                 game:getservice('tweenservice'):create(
+                     paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                 {color = color3.fromrgb(255, 155, 0)}):play() 
+                 wait(.5)
+ 
+                 game:getservice('tweenservice'):create(
+                     paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                 {color = color3.fromrgb(255, 255, 0)}):play() 
+                 wait(.5)
+ 
+                 game:getservice('tweenservice'):create(
+                     paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                 {color = color3.fromrgb(0, 255, 0)}):play() 
+                 wait(.5)
+ 
+                 game:getservice('tweenservice'):create(
+                     paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                 {color = color3.fromrgb(0, 255, 255)}):play() 
+                 wait(.5)
+ 
+                 game:getservice('tweenservice'):create(
+                     paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                 {color = color3.fromrgb(0, 155, 255)}):play() 
+                 wait(.5)
+ 
+                 game:getservice('tweenservice'):create(
+                     paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                 {color = color3.fromrgb(255, 0, 255)}):play() 
+                 wait(.5)
+ 
+                 game:getservice('tweenservice'):create(
+                     paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                 {color = color3.fromrgb(255, 0, 155)}):play() 
+                 wait(.5)
+             end 
+     elseif game.players.localplayer.character.humanoidrootpart:findfirstchild("bodyclip") then
+			game.players.localplayer.character.humanoidrootpart.bodyclip:destroy()
+         end
+        end
+    end)
+ end)
+end)
+
+spawn(function()
+    while true do game:getservice("runservice").renderstepped:wait()
+        if clip or _g.autofarm or autokaitan then
+            if syn and  game.players.localplayer.character:findfirstchild("humanoid") then
+                setfflag("humanoidparallelremovenophysics", "false")
+                setfflag("humanoidparallelremovenophysicsnosimulate2", "false")
+                game.players.localplayer.character.humanoid:changestate(7)
+            end
+        end
+    end
+end)
+
+
+
+spawn(function()
+    pcall(function()
+        while game:getservice("runservice").heartbeat:wait() do
+            if noclip or _g.autofarm or autokaitan then
+                if game:getservice("players").localplayer.character.humanoidrootpart.cframe.y <= 1 then
+					if not game.players.localplayer.character.humanoidrootpart:findfirstchild("bodyclip") then
+						local noclip = instance.new("bodyvelocity")
+						noclip.name = "bodyclip"
+						noclip.parent = game.players.localplayer.character.humanoidrootpart
+						noclip.maxforce = vector3.new(150000,150000,150000)
+						noclip.velocity = vector3.new(0,0,0)
+             while true do 
+                wait(0.1) 
+                game:getservice('tweenservice'):create(
+                    paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                {color = color3.fromrgb(255, 0, 0)}):play() 
+                wait(.5)
+
+                game:getservice('tweenservice'):create(
+                    paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                {color = color3.fromrgb(255, 155, 0)}):play() 
+                wait(.5)
+
+                game:getservice('tweenservice'):create(
+                    paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                {color = color3.fromrgb(255, 255, 0)}):play() 
+                wait(.5)
+
+                game:getservice('tweenservice'):create(
+                    paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                {color = color3.fromrgb(0, 255, 0)}):play() 
+                wait(.5)
+
+                game:getservice('tweenservice'):create(
+                    paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                {color = color3.fromrgb(0, 255, 255)}):play() 
+                wait(.5)
+
+                game:getservice('tweenservice'):create(
+                    paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                {color = color3.fromrgb(0, 155, 255)}):play() 
+                wait(.5)
+
+                game:getservice('tweenservice'):create(
+                    paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                {color = color3.fromrgb(255, 0, 255)}):play() 
+                wait(.5)
+
+                game:getservice('tweenservice'):create(
+                    paertaiteen,tweeninfo.new(1,enum.easingstyle.linear,enum.easingdirection.inout),
+                {color = color3.fromrgb(255, 0, 155)}):play() 
+                wait(.5)
+            end 
+            elseif game.players.localplayer.character.humanoidrootpart:findfirstchild("bodyclip") then
+                    game.players.localplayer.character.humanoidrootpart.bodyclip:destroy()
+			end
+            end
+		end
+    end
+end)
+end)
+
+
+spawn(function()
+    pcall(function()
+        game:getservice("runservice").stepped:connect(function()
+            if _g.autofarm or autokaitan then
+                for _, v in pairs(game.players.localplayer.character:getdescendants()) do
+                    if v:isa("basepart") then
+                        v.cancollide = false    
+                    end
+                end
+            end
+        end)
+    end)
+end)
+
+function equipweapon(toolse)
+    if game.players.localplayer.backpack:findfirstchild(toolse) then
+        local tool = game.players.localplayer.backpack:findfirstchild(toolse)
+        wait(.4)
+        game.players.localplayer.character.humanoid:equiptool(tool)
+    end
+end
+
+--distande auto farm
+
+type = 1
+spawn(function()
+    while wait(.1) do
+        if type == 1 then
+            farm_mode = cframe.new(0, 10,10)
+        elseif type == 2 then
+            farm_mode = cframe.new(0, 10,10)
+        end
+    end
+end)
+
+spawn(function()
+    while wait(.1) do
+        type = 1
+        wait(5)
+        type = 2
+        wait(5)
+    end
+end)
+
+pcall(function()
+    for _, v in pairs(game.players.localplayer.character:getdescendants()) do
+		if v:isa("basepart") then
+			v.cancollide = false    
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if auto_farm then
+            if game:getservice("players").localplayer.playergui.main.quest.visible == false then
+                magnetactive = false
+                checklevel()
+                tp(cframeq)
+                if (cframeq.position - game.players.localplayer.character.humanoidrootpart.position).magnitude <= 4 then
+                    wait(1.1)
+                    checklevel()
+                    if (cframeq.position - game.players.localplayer.character.humanoidrootpart.position).magnitude <= 20 then
+                        game:getservice("replicatedstorage").remotes.commf_:invokeserver("startquest", namequest, questlv)
+                        game:getservice("replicatedstorage").remotes.commf_:invokeserver("setspawnpoint")
+                    else
+                        tp(cframeq)
+                    end
+                end
+            elseif game:getservice("players").localplayer.playergui.main.quest.visible == true then
+                pcall(function()
+                    checklevel()
+                    if game:getservice("workspace").enemies:findfirstchild(ms) then
+                        for i,v in pairs(game:getservice("workspace").enemies:getchildren()) do
+                            if v.name == ms and v:findfirstchild("humanoid") then
+                                if v.humanoid.health > 0 then
+                                    repeat game:getservice("runservice").heartbeat:wait()
+                                        if game:getservice("workspace").enemies:findfirstchild(ms) then
+                                            if string.find(game:getservice("players").localplayer.playergui.main.quest.container.questtitle.title.text, namemon) then
+                                                equipweapon(selecttoolweapon)
+                                                tp(v.humanoidrootpart.cframe * farm_mode)
+                                                v.humanoidrootpart.cancollide = false
+                                                v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                                                game:getservice("virtualuser"):capturecontroller()
+                                                game:getservice("virtualuser"):button1down(vector2.new(1280, 670),workspace.currentcamera.cframe)
+                                                posmon = v.humanoidrootpart.cframe
+                                                magnetactive = true
+                                            else
+                                                magnetactive = false    
+                                                game:getservice("replicatedstorage").remotes.commf_:invokeserver("abandonquest")
+                                            end
+                                        else
+                                            magnetactive = false
+                                            checklevel()
+                                            tp(cframemon)
+                                        end
+                                    until not v.parent or v.humanoid.health <= 0 or auto_farm == false or game.players.localplayer.playergui.main.quest.visible == false or not game:getservice("workspace").enemies:findfirstchild(v.name)
+                                end
+                            end
+                        end
+                    else
+                        magnetactive = false
+                        checklevel()
+                        tp(cframemon)
+                    end
+                end)
+            end
+        end
+    end
+end)
+
+
+spawn(function()
+    while wait(.1) do
+        if autobartilo then
+            if game.players.localplayer.data.level.value >= 850 and game:getservice("replicatedstorage").remotes.commf_:invokeserver("bartiloquestprogress","bartilo") == 0 then
+                if string.find(game.players.localplayer.playergui.main.quest.container.questtitle.title.text, "swan pirates") and string.find(game.players.localplayer.playergui.main.quest.container.questtitle.title.text, "50") and game.players.localplayer.playergui.main.quest.visible == true then 
+                    if game:getservice("workspace").enemies:findfirstchild("swan pirate [lv. 775]") then
+                        for i,v in pairs(game:getservice("workspace").enemies:getchildren()) do
+                            if v.name == "swan pirate [lv. 775]" then
+                                pcall(function()
+                                    repeat wait(.1)
+                                        equipweapon(miscfarmweapon)
+                                        game:getservice'virtualuser':capturecontroller()
+                                        game:getservice'virtualuser':button1down(vector2.new(1280, 672))
+                                        tp(v.humanoidrootpart.cframe * cframe.new(0,15,0))
+                                        require(game:getservice("players").localplayer.playerscripts.combatframework).activecontroller.hitboxmagnitude = 1000
+                                        posmonbartilo = v.humanoidrootpart.cframe
+                                        magnetbatilo = true
+                                    until not v.parent or v.humanoid.health <= 0 or autobartilo == false or game.players.localplayer.playergui.main.quest.visible == false
+                                    magnetbatilo = false
+                                end)
+                            end
+                        end
+                    else
+                        magnetbatilo = false
+                        tp(cframe.new(1057.92761, 137.614319, 1242.08069))
+                    end
+                else
+                    tp2(cframe.new(-456.28952, 73.0200958, 299.895966))
+                    if (vector3.new(-456.28952, 73.0200958, 299.895966) - game.players.localplayer.character.humanoidrootpart.position).magnitude <= 30 then
+                        wait(1.1)
+                        game:getservice("replicatedstorage").remotes.commf_:invokeserver("startquest","bartiloquest",1)
+                    end
+                end
+            elseif game.players.localplayer.data.level.value >= 850 and game:getservice("replicatedstorage").remotes.commf_:invokeserver("bartiloquestprogress","bartilo") == 1 then
+                if questbartilo == nil then
+                    tp2(cframe.new(-456.28952, 73.0200958, 299.895966))
+                end
+                if (vector3.new(-456.28952, 73.0200958, 299.895966) - game.players.localplayer.character.humanoidrootpart.position).magnitude <= 30 then
+                    wait(1.1)
+                    game:getservice("replicatedstorage").remotes.commf_:invokeserver("bartiloquestprogress","bartilo")
+                    questbartilo = 1
+                end
+                if game.workspace.enemies:findfirstchild("jeremy [lv. 850] [boss]") then
+                    for i,v in pairs(game.workspace.enemies:getchildren()) do
+                        if v.name == "jeremy [lv. 850] [boss]" then
+                            repeat wait(.1)
+                                sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                                require(game:getservice("players").localplayer.playerscripts.combatframework).activecontroller.hitboxmagnitude = 1000
+                                equipweapon(miscfarmweapon)
+                                tp(v.humanoidrootpart.cframe * cframe.new(0,15,6))
+                                game:getservice'virtualuser':capturecontroller()
+                                game:getservice'virtualuser':button1down(vector2.new(1280, 672))
+                            until not v.parent or v.humanoid.health <= 0 or autobartilo == false
+                        end
+                    end
+                else
+                    if questbartilo == 1 then
+                        tp(cframe.new(1931.5931396484, 402.67391967773, 956.52215576172))
+                    end
+                end
+            elseif game.players.localplayer.data.level.value >= 850 and game:getservice("replicatedstorage").remotes.commf_:invokeserver("bartiloquestprogress","bartilo") == 2 then
+                tp2(game:getservice("workspace").map.dressrosa.bartiloplates.plate1.cframe)
+                wait(1)
+                game.players.localplayer.character.humanoidrootpart.cframe = game:getservice("workspace").map.dressrosa.bartiloplates.plate2.cframe
+                wait(1)
+                game.players.localplayer.character.humanoidrootpart.cframe = game:getservice("workspace").map.dressrosa.bartiloplates.plate3.cframe
+                wait(1)
+                game.players.localplayer.character.humanoidrootpart.cframe = game:getservice("workspace").map.dressrosa.bartiloplates.plate4.cframe
+                wait(1)
+                game.players.localplayer.character.humanoidrootpart.cframe = game:getservice("workspace").map.dressrosa.bartiloplates.plate5.cframe
+                wait(1)
+                game.players.localplayer.character.humanoidrootpart.cframe = game:getservice("workspace").map.dressrosa.bartiloplates.plate6.cframe
+                wait(1)
+                game.players.localplayer.character.humanoidrootpart.cframe = game:getservice("workspace").map.dressrosa.bartiloplates.plate7.cframe
+                wait(1)
+                game.players.localplayer.character.humanoidrootpart.cframe = game:getservice("workspace").map.dressrosa.bartiloplates.plate8.cframe
+                wait(1)
+            end
+        end 
+    end
+end)
+
+warn("afk")
+local value = game:getservice("virtualuser")
+game:getservice("players").localplayer.idled:connect(function()
+   vu:button2down(vector2.new(0,0),workspace.currentcamera.cframe)
+   wait(1)
+   vu:button2up(vector2.new(0,0),workspace.currentcamera.cframe)
+end)
+
+function click()
+    game:getservice'virtualuser':capturecontroller()
+    game:getservice'virtualuser':button1down(vector2.new(1280, 672))
+end
+
+function autohaki()
+    if not game.players.localplayer.character:findfirstchild("hasbuso") then
+        local args = {
+            [1] = "buso"
+        }
+        game:getservice("replicatedstorage").remotes.commf_:invokeserver(unpack(args))
+    end
+end
+
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            checklevel()
+            for i,v in pairs(game:getservice("workspace").enemies:getchildren()) do
+                if _g.autofarm and magnetactive and magnet then
+                    if v.name == ms and v:findfirstchild("humanoid") and v.humanoid.health > 0 then
+                        if v.name == "factory staff [lv. 800]" then
+                            if (v.humanoidrootpart.position - posmon.position).magnitude <= 250 then
+                                v.head.cancollide = false
+                                v.humanoidrootpart.cancollide = false
+                                v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                                v.humanoidrootpart.cframe = posmon
+                                sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                            end
+                        elseif v.name == ms then
+                            if (v.humanoidrootpart.position - posmon.position).magnitude <= 400 then
+                                v.head.cancollide = false
+                                v.humanoidrootpart.cancollide = false
+                                v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                                v.humanoidrootpart.cframe = posmon
+                                sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                            end
+                        end
+                    end
+                elseif farmmasteryfruit and masterybfmagnetactive and masterymagnet then
+                    if v.name == "monkey [lv. 14]" then
+                        if (v.humanoidrootpart.position - posmonmasteryfruit.position).magnitude <= 250 then
+                            v.head.cancollide = false
+                            v.humanoidrootpart.cancollide = false
+                            v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                            v.humanoidrootpart.cframe = posmonmasteryfruit
+                            sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                        end
+                    elseif v.name == "factory staff [lv. 800]" then
+                        if (v.humanoidrootpart.position - posmonmasteryfruit.position).magnitude <= 250 then
+                            v.head.cancollide = false
+                            v.humanoidrootpart.cancollide = false
+                            v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                            v.humanoidrootpart.cframe = posmonmasteryfruit
+                            sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                        end
+                    elseif v.name == ms then
+                        if (v.humanoidrootpart.position - posmonmasteryfruit.position).magnitude <= 400 then
+                            v.head.cancollide = false
+                            v.humanoidrootpart.cancollide = false
+                            v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                            v.humanoidrootpart.cframe = posmonmasteryfruit
+                            sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                        end
+                    end
+                elseif farmmasterygun and masterygunmagnetactive and masterymagnet then
+                    if v.name == "monkey [lv. 14]" then
+                        if (v.humanoidrootpart.position - posmonmasterygun.position).magnitude <= 250 then
+                            v.head.cancollide = false
+                            v.humanoidrootpart.cancollide = false
+                            v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                            v.humanoidrootpart.cframe = posmonmasterygun
+                            sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                        end
+                    elseif v.name == "factory staff [lv. 800]" then
+                        if (v.humanoidrootpart.position - posmonmasterygun.position).magnitude <= 250 then
+                            v.head.cancollide = false
+                            v.humanoidrootpart.cancollide = false
+                            v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                            v.humanoidrootpart.cframe = posmonmasterygun
+                            sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                        end
+                    elseif v.name == ms then
+                        if (v.humanoidrootpart.position - posmonmasterygun.position).magnitude <= 400 then
+                            v.head.cancollide = false
+                            v.humanoidrootpart.cancollide = false
+                            v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                            v.humanoidrootpart.cframe = posmonmasterygun
+                            sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                        end
+                    end
+                elseif autobartilo and magnetbatilo and magnet then
+                    if v.name == "swan pirate [lv. 775]" and v:findfirstchild("humanoid") and v.humanoid.health > 0 then
+                        v.head.cancollide = false
+                        v.humanoidrootpart.cancollide = false
+                        v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                        v.humanoidrootpart.cframe = posmonbartilo
+                        sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                    end
+                elseif autorengoku and rengokumagnet and magnet then
+                    if (v.name == "snow lurker [lv. 1375]" or v.name == "arctic warrior [lv. 1350]") and (v.humanoidrootpart.position - posmonrengoku.position).magnitude <= 350 then
+                        v.head.cancollide = false
+                        v.humanoidrootpart.cancollide = false
+                        v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                        v.humanoidrootpart.cframe = posmonrengoku
+                        sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                    end
+                elseif auto_bone and bonemagnet and magnet then
+                    if (v.name == "reborn skeleton [lv. 1975]" or v.name == "living zombie [lv. 2000]" or v.name == "demonic soul [lv. 2025]" or v.name == "posessed mummy [lv. 2050]") and (v.humanoidrootpart.position - mainmonbone.position).magnitude <= 300 then
+                        v.humanoidrootpart.cframe = mainmonbone
+                        v.humanoid.jumppower = 0
+                        v.humanoid.walkspeed = 0
+                        v.humanoidrootpart.cancollide = false
+                        if v.humanoid:findfirstchild("animator") then
+                            v.humanoid.animator:destroy()
+                        end
+                        sethiddenproperty(game.players.localplayer, "simulationradius",  math.huge)
+						v.humanoid:changestate(11)
+                    end
+                elseif auto_candy and candymagnet and magnet then
+                    if (v.name == "peanut scout [lv. 2075]" or v.name == "peanut president [lv. 2100]" or v.name == "ice cream chef [lv. 2125]" or v.name == "posessed mummy [lv. 2050]") and (v.humanoidrootpart.position - maincandy.position).magnitude <= 300 then
+                        v.humanoidrootpart.cframe = maincandy
+                        v.humanoid.jumppower = 0
+                        v.humanoid.walkspeed = 0
+                        v.humanoidrootpart.cancollide = false
+                        if v.humanoid:findfirstchild("animator") then
+                            v.humanoid.animator:destroy()
+                        end
+                        sethiddenproperty(game.players.localplayer, "simulationradius",  math.huge)
+						v.humanoid:changestate(11)
+                    end
+                elseif auto_beli and belimagnet and magnet then
+                    if (v.name == "cookie crafter [lv. 2200]" or v.name == "cake guard [lv. 2225]" or v.name == "baking staff [lv. 2250]" or v.name == "head baker [lv. 2275]") and (v.humanoidrootpart.position - mainbeli.position).magnitude <= 300 then
+                        v.head.cancollide = false
+                        v.humanoidrootpart.cancollide = false
+                        v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                        v.humanoidrootpart.cframe = mainbeli
+                        v.humanoid.jumppower = 0
+                        v.humanoid.walkspeed = 0
+                        v.humanoidrootpart.cancollide = false
+                        if v.humanoid:findfirstchild("animator") then
+                            v.humanoid.animator:destroy()
+                        end
+                        sethiddenproperty(game.players.localplayer, "simulationradius",  math.huge)
+						v.humanoid:changestate(11)
+                    end
+                elseif autoecto and ectoplasmagnet and magnet then
+                    if string.find(v.name, "ship") and (v.humanoidrootpart.position - posmonectoplas.position).magnitude <= 300 then
+                        v.head.cancollide = false
+                        v.humanoidrootpart.cancollide = false
+                        v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                        v.humanoidrootpart.cframe = posmonectoplas
+                        sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                    end
+                elseif autoevorace and evomagnet and magnet then
+                    if v.name == "zombie [lv. 950]" and (v.humanoidrootpart.position - posmonzombie.position).magnitude <= 300 then
+                        v.head.cancollide = false
+                        v.humanoidrootpart.cancollide = false
+                        v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                        v.humanoidrootpart.cframe = posmonzombie
+                        sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                    end
+                elseif autocitizen and citizenmagnet and magnet then
+                    if v.name == "forest pirate [lv. 1825]" and (v.humanoidrootpart.position - posmoncitizen.position).magnitude <= 300 then
+                        v.head.cancollide = false
+                        v.humanoidrootpart.cancollide = false
+                        v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                        v.humanoidrootpart.cframe = posmonzombie
+                        sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                    end
+                 elseif autocitizen and citizenmagnet and magnet then
+                    if v.name == "forest pirate [lv. 1825]" and (v.humanoidrootpart.position - posmoncitizen.position).magnitude <= 300 then
+                        v.head.cancollide = false
+                        v.humanoidrootpart.cancollide = false
+                        v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                        v.humanoidrootpart.cframe = posmonzombie
+                        sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                    end
+                elseif autofarmselectmonster and autofarmselectmonstermagnet and magnet then
+                    if v.name == ms and (v.humanoidrootpart.position - posmonselectmonster.position).magnitude <= 400 then
+                        v.head.cancollide = false
+                        v.humanoidrootpart.cancollide = false
+                        v.humanoidrootpart.size = vector3.new(60, 60, 60)
+                        v.humanoidrootpart.cframe = posmonselectmonster
+                        sethiddenproperty(game.players.localplayer, "simulationradius", math.huge)
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+
+page1:button("remove sound attack", function()
+    pcall(function()
+		game:getservice("replicatedstorage").assets.gui:destroy()
+		game:getservice("replicatedstorage").assets.slashhit:destroy()
+		game:getservice("replicatedstorage").effect.container:destroy()
+        game:getservice("replicatedstorage").util.sound:destroy()
+	end)
+end)
+
+if autokaitan then
+    checkbarto = vu
+    if game.players.localplayer.backpack:findfirstchild("warrior helmet") then
+        success = true
+    elseif game.players.localplayer.character:findfirstchild("warrior helmet") then
+        success = true
+    end
+    if success and checkbarto == true then
+        discordlib:notification("auto quest bartilo","successfully","ok")
+    elseif checkbarto == true and miscfarmweapon == "" then
+        discordlib:notification("auto quest bartilo","selectweapon first","okay")
+    elseif game:getservice("replicatedstorage").remotes.commf_:invokeserver("bartiloquestprogress","bartilo") == 3 and checkbarto == true then
+        discordlib:notification("auto quest bartilo","successfully","ok")
+    else
+        autobartilo = vu
+        if vu == false then
+            wait(1)
+            tp(game.players.localplayer.character.humanoidrootpart.cframe)
+        end
+    end
+end
+
+
+playername = {}
+for i,v in pairs(game.players:getchildren()) do  
+	table.insert(playername ,v.name)
+end
+function isnil(thing)
+	return (thing == nil)
+end
+local function round(n)
+	return math.floor(tonumber(n) + 0.5)
+end
+number = math.random(1, 1000000)
+function updateplayerchams()
+	for i,v in pairs(game:getservice'players':getchildren()) do
+		pcall(function()
+			if not isnil(v.character) then
+				if espplayer then
+					if not isnil(v.character.head) and not v.character.head:findfirstchild('nameesp'..number) then
+						local bill = instance.new('billboardgui',v.character.head)
+						bill.name = 'nameesp'..number
+						bill.extentsoffset = vector3.new(0, 1, 0)
+						bill.size = udim2.new(1,200,1,30)
+						bill.adornee = v.character.head
+						bill.alwaysontop = true
+						local name = instance.new('textlabel',bill)
+						name.font = "gothambold"
+						name.fontsize = "size14"
+						name.textwrapped = true
+						name.text = (v.name ..' \n'.. round((game:getservice('players').localplayer.character.head.position - v.character.head.position).magnitude/3) ..' m')
+						name.size = udim2.new(1,0,1,0)
+						name.textyalignment = 'top'
+						name.backgroundtransparency = 1
+						name.textstroketransparency = 0.5
+						if v.team == game.players.localplayer.team then
+							name.textcolor3 = color3.new(0,255,0)
+						else
+							name.textcolor3 = color3.new(255,0,0)
+						end
+					else
+						v.character.head['nameesp'..number].textlabel.text = (v.name ..'   \n'.. round((game:getservice('players').localplayer.character.head.position - v.character.head.position).magnitude/3) ..' m')
+					end
+				else
+					if v.character.head:findfirstchild('nameesp'..number) then
+						v.character.head:findfirstchild('nameesp'..number):destroy()
+					end
+				end
+			end
+		end)
+	end
+end
+
+if autokaitan then
+    game:getservice("replicatedstorage").remotes.commf_:invokeserver("cousin","buy")
+end
+
+
+spawn(function()
+	pcall(function()
+		while wait(.1) do
+			if autokaitan then
+				if game:getservice("players").localplayer.character:findfirstchild("bomb fruit") or game:getservice("players").localplayer.backpack:findfirstchild("bomb fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","bomb-bomb")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("spike fruit") or game:getservice("players").localplayer.backpack:findfirstchild("spike fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","spike-spike")
+                end
+                if game:getservice("players").localplayer.character:findfirstchild("chop fruit") or game:getservice("players").localplayer.backpack:findfirstchild("chop fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","chop-chop")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("spring fruit") or game:getservice("players").localplayer.backpack:findfirstchild("spring fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","spring-spring")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("kilo fruit") or game:getservice("players").localplayer.backpack:findfirstchild("kilo fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","kilo-kilo")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("smoke fruit") or game:getservice("players").localplayer.backpack:findfirstchild("smoke fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","smoke-smoke")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("spin fruit") or game:getservice("players").localplayer.backpack:findfirstchild("spin fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","spin-spin")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("flame fruit") or game:getservice("players").localplayer.backpack:findfirstchild("flame fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","flame-flame")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("bird: falcon fruit") or game:getservice("players").localplayer.backpack:findfirstchild("bird: falcon fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","bird-bird: falcon")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("ice fruit") or game:getservice("players").localplayer.backpack:findfirstchild("ice fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","ice-ice")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("sand fruit") or game:getservice("players").localplayer.backpack:findfirstchild("sand fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","sand-sand")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("dark fruit") or game:getservice("players").localplayer.backpack:findfirstchild("dark fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","dark-dark")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("revive fruit") or game:getservice("players").localplayer.backpack:findfirstchild("revive fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","revive-dark")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("diamond fruit") or game:getservice("players").localplayer.backpack:findfirstchild("diamond fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","diamond-diamond")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("light fruit") or game:getservice("players").localplayer.backpack:findfirstchild("light fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","light-light")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("love fruit") or game:getservice("players").localplayer.backpack:findfirstchild("love fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","love-love")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("rubber fruit") or game:getservice("players").localplayer.backpack:findfirstchild("rubber fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","rubber-rubber")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("barrier fruit") or game:getservice("players").localplayer.backpack:findfirstchild("barrier fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","barrier-barrier")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("magma fruit") or game:getservice("players").localplayer.backpack:findfirstchild("magma fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","magma-magma")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("door fruit") or game:getservice("players").localplayer.backpack:findfirstchild("door fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","door-door")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("quake fruit") or game:getservice("players").localplayer.backpack:findfirstchild("quake fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","quake-quake")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("human-human: buddha fruit") or game:getservice("players").localplayer.backpack:findfirstchild("human-human: buddha fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","human-human: buddha")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("string fruit") or game:getservice("players").localplayer.backpack:findfirstchild("string fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","string-string")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("bird: phoenix fruit") or game:getservice("players").localplayer.backpack:findfirstchild("bird: phoenix fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","bird-bird: phoenix")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("rumble fruit") or game:getservice("players").localplayer.backpack:findfirstchild("rumble fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","rumble-rumble")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("paw fruit") or game:getservice("players").localplayer.backpack:findfirstchild("paw fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","paw-paw")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("gravity fruit") or game:getservice("players").localplayer.backpack:findfirstchild("gravity fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","gravity-gravity")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("dough fruit") or game:getservice("players").localplayer.backpack:findfirstchild("dough fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","dough-dough")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("shadow fruit") or game:getservice("players").localplayer.backpack:findfirstchild("shadow fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","shadow-shadow")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("venom fruit") or game:getservice("players").localplayer.backpack:findfirstchild("venom fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","venom-venom")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("control fruit") or game:getservice("players").localplayer.backpack:findfirstchild("control fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","control-control")
+                end
+				if game:getservice("players").localplayer.character:findfirstchild("dragon fruit") or game:getservice("players").localplayer.backpack:findfirstchild("dragon fruit") then
+					game:getservice("replicatedstorage").remotes.commf_:invokeserver("storefruit","dragon-dragon")
+				end
+			end
+		end
+	end)
+end)
+
+if autokaitan then
+    while true do
+    local args = {
+		[1] = "getinventoryfruits"
+	}
+	
+	game:getservice("replicatedstorage").remotes.commf_:invokeserver("getinventoryfruits")
+	game:getservice("players").localplayer.playergui.main.fruitinventory.visible = true
+end
+end
+
+
+spawn(function()
+	while wait() do
+		if autokaitan then
+			local args = {
+				[1] = "legendarysworddealer",
+				[2] = "1"
+			}
+			game:getservice("replicatedstorage").remotes.commf_:invokeserver(unpack(args))
+			local args = {
+				[1] = "legendarysworddealer",
+				[2] = "2"
+			}
+			game:getservice("replicatedstorage").remotes.commf_:invokeserver(unpack(args))
+			local args = {
+				[1] = "legendarysworddealer",
+				[2] = "3"
+			}
+		    game:getservice("replicatedstorage").remotes.commf_:invokeserver(unpack(args))
+        	if _g.autolegendary_hop and newworld then
+                wait(10)
+            	teleport()
+            end
+		end 
+	end
+end)
+
+
+page1:button("server hop", function()
+	discordlib:notification("hop server", "wait for teleport", "ok")
+	teleport()
+end)
+
+page1:button("hop lower server",function(value)
+    local maxplayers, gamelink, goodserver, data_table = math.huge, "https://games.roblox.com/v1/games/" .. game.placeid .. "/servers/public?sortorder=asc&limit=100"
+        if not _g.failedserverid then _g.failedserverid = {} end
+
+        local function serversearch()
+            data_table = game:getservice"httpservice":jsondecode(game:httpgetasync(gamelink))
+            for _, v in pairs(data_table.data) do
+                pcall(function()
+                    if type(v) == "table" and v.id and v.playing and tonumber(maxplayers) > tonumber(v.playing) and not table.find(_g.failedserverid, v.id) then
+                        maxplayers = v.playing
+                        goodserver = v.id
+                    end
+                end)
+            end
+        end
+
+        function getservers()
+            pcall(serversearch)
+            for i, v in pairs(data_table) do
+                if i == "nextpagecursor" then
+                    if gamelink:find"&cursor=" then
+                        local a = gamelink:find"&cursor="
+                        local b = gamelink:sub(a)
+                        gamelink = gamelink:gsub(b, "")
+                    end
+                    gamelink = gamelink .. "&cursor=" .. v
+                    pcall(getservers)
+                end
+            end
+        end
+
+        pcall(getservers)
+        wait()
+        if goodserver == game.jobid or maxplayers == #game:getservice"players":getchildren() - 1 then
+        end
+        table.insert(_g.failedserverid, goodserver)
+        game:getservice"teleportservice":teleporttoplaceinstance(game.placeid, goodserver)
+end)
+
+page1:button("rejoin server", function()
+	game:getservice("teleportservice"):teleport(game.placeid, game:getservice("players").localplayer)
+end)
+
+page1:button("fps boost", function()
+if not game:isloaded() then repeat wait() until game:isloaded() end
+	if hookfunction and setreadonly then
+		local mt = getrawmetatable(game)
+		local old = mt.__newindex
+		setreadonly(mt, false)
+		local sda
+		sda = hookfunction(old, function(t, k, v)
+			if k == "material" then
+				if v ~= enum.material.neon and v ~= enum.material.plastic and v ~= enum.material.forcefield then v = enum.material.plastic end
+			elseif k == "topsurface" then v = "smooth"
+			elseif k == "reflectance" or k == "waterwavesize" or k == "waterwavespeed" or k == "waterreflectance" then v = 0
+			elseif k == "watertransparency" then v = 1
+			elseif k == "globalshadows" then v = false end
+			return sda(t, k, v)
+		end)
+		setreadonly(mt, true)
+	end
+	local g = game
+	local w = g.workspace
+	local l = g:getservice"lighting"
+	local t = w:waitforchild"terrain"
+	t.waterwavesize = 0
+	t.waterwavespeed = 0
+	t.waterreflectance = 0
+	t.watertransparency = 1
+	l.globalshadows = false
+	
+	function change(v)
+		pcall(function()
+			if v.material ~= enum.material.neon and v.material ~= enum.material.plastic and v.material ~= enum.material.forcefield then
+				pcall(function() v.reflectance = 0 end)
+				pcall(function() v.material = enum.material.plastic end)
+				pcall(function() v.topsurface = "smooth" end)
+			end
+		end)
+	end
+	
+	game.descendantadded:connect(function(v)
+		pcall(function()
+			if v:isa"part" then change(v)
+			elseif v:isa"meshpart" then change(v)
+			elseif v:isa"trusspart" then change(v)
+			elseif v:isa"unionoperation" then change(v)
+			elseif v:isa"cornerwedgepart" then change(v)
+			elseif v:isa"wedgepart" then change(v) end
+		end)
+	end)
+	for i, v in pairs(game:getdescendants()) do
+		pcall(function()
+			if v:isa"part" then change(v)
+			elseif v:isa"meshpart" then change(v)
+			elseif v:isa"trusspart" then change(v)
+			elseif v:isa"unionoperation" then change(v)
+			elseif v:isa"cornerwedgepart" then change(v)
+			elseif v:isa"wedgepart" then change(v) end
+		end)
+	end 
+end)
+
+spawn(function()
+	while wait(.1) do
+		if autokaitan then 
+			if game.players.localplayer.character:findfirstchild("hasbuso") then
+
+			else
+				local args = {
+					[1] = "buso"
+				}
+				game:getservice("replicatedstorage").remotes.commf_:invokeserver(unpack(args))
+			end
+		end
+	end
+end)
+
+local client = game.players.localplayer
+local stop = require(client.playerscripts.combatframework.particle)
+local stoprl = require(game:getservice("replicatedstorage").combatframework.riglib)
+if not shared.orl then shared.orl = stoprl.wrapattackanimationasync end
+if not shared.cpc then shared.cpc = stop.play end
+while task.wait() do
+				stoprl.wrapattackanimationasync = function(a,b,c,d,func)
+					local hits = stoprl.getbladehits(b,c,d)
+					if hits then
+						stop.play = function() end
+						a:play(0.01,0.01,0.01)
+						func(hits)
+						stop.play = shared.cpc
+						wait(a.length * 0.5)
+						a:stop()
+					end
+				end
+end
